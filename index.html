@@ -1,0 +1,1616 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LUMORA SKIN — Healthy skin, naturally. (Gentle Everyday Skincare)</title>
+  <meta name="description" content="LUMORA is a modern skincare brand focused on simple, everyday skincare using gentle and effective ingredients like Aloe Vera, Vitamin C, Hyaluronic Acid, and Ceramides.">
+  <meta name="author" content="LUMORA SKIN Studio">
+  
+  <!-- Open Graph & Social Metadata -->
+  <meta property="og:title" content="LUMORA SKIN — Healthy skin, naturally.">
+  <meta property="og:description" content="Simple skincare essentials made for your everyday routine. Gentle, clinically effective ingredients for a radiant, balanced glow.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=1200&q=85">
+
+  <!-- Schema.org JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "OnlineStore",
+    "name": "LUMORA SKIN",
+    "description": "Modern skincare brand focused on simple, everyday skincare using gentle and effective ingredients.",
+    "currenciesAccepted": "INR",
+    "paymentAccepted": "Credit Card, Debit Card, UPI, Net Banking (Simulated)",
+    "priceRange": "₹499 - ₹899"
+  }
+  </script>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ivory: '#F8F5EF',
+            beigeSoft: '#F1EDE4',
+            sageSoft: '#E8F0EA',
+            sageTint: '#F2F6F2',
+            beigeWarm: '#E9E0D2',
+            deepGreen: '#19382A',
+            deepGreenDark: '#12281E',
+            sage: '#6F8B76',
+            sageHover: '#5A7460',
+            mutedGreen: '#4D6855',
+          },
+          fontFamily: {
+            serif: ['Cormorant Garamond', 'Georgia', 'serif'],
+            sans: ['Plus Jakarta Sans', 'Inter', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-[#F8F5EF] text-[#19382A] antialiased flex flex-col min-h-screen">
+
+  <!-- =========================================================================
+       0. DEMO STOREFRONT WATERMARK BANNER
+       ========================================================================= -->
+  <div class="py-1.5 px-4 text-center text-[10px] uppercase tracking-[0.25em] bg-[#12281E] text-[#E9E0D2] font-medium flex items-center justify-center gap-2" role="region" aria-label="Demo Disclaimer">
+    <span class="w-1.5 h-1.5 rounded-full bg-[#6F8B76] inline-block"></span>
+    <span>Portfolio Concept Showcase · LUMORA SKIN Demo Storefront · No Real Payments Processed</span>
+  </div>
+
+  <!-- =========================================================================
+       1. TOP ANNOUNCEMENT TICKER
+       ========================================================================= -->
+  <aside aria-label="Store Announcement" class="bg-[#19382A] text-white py-2.5 px-4 text-center text-[11px] font-medium border-b border-[#12281E]">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
+      
+      <!-- Free Delivery Perk -->
+      <div class="flex items-center gap-2 text-[10px] tracking-wider uppercase">
+        <span class="bg-[#6F8B76] text-white px-2 py-0.5 rounded font-bold">Offer</span>
+        <span class="text-[#F8F5EF]">Complimentary Express Delivery on orders over <strong>₹999</strong></span>
+      </div>
+
+      <!-- Ticker Coupon Message -->
+      <div id="ticker-announcement-text" class="text-xs text-[#E8F0EA]">
+        Use code <strong class="underline font-bold text-white">LUMORA15</strong> for 15% off your first order
+      </div>
+
+      <!-- Brand Pillars Badges -->
+      <div class="hidden md:flex items-center gap-3 text-[10px] tracking-wider text-[#A8C2B0]">
+        <span>🌿 Gentle Actives</span>
+        <span>•</span>
+        <span>pH 5.5 Balanced</span>
+        <span>•</span>
+        <span>100% Cruelty-Free</span>
+      </div>
+
+    </div>
+  </aside>
+
+  <!-- =========================================================================
+       2. PRIMARY STICKY NAVIGATION
+       ========================================================================= -->
+  <header class="sticky top-0 z-40 bg-[#F8F5EF]/95 backdrop-blur-md border-b border-[#E9E0D2]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Mobile Menu Button -->
+      <button 
+        id="mobile-menu-btn" 
+        class="lg:hidden text-[#19382A] p-2 hover:text-[#6F8B76] focus:outline-none min-w-[44px] min-h-[44px] flex items-center justify-center" 
+        aria-label="Open Navigation Menu"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+      >
+        <i data-lucide="menu" class="w-6 h-6"></i>
+      </button>
+
+      <!-- Desktop Primary Nav Links -->
+      <nav class="hidden lg:flex items-center gap-8 text-xs uppercase tracking-widest font-semibold" aria-label="Main Navigation">
+        <a href="#home" data-nav-target="home" class="py-1 text-[#19382A] border-b-2 border-[#6F8B76] transition-colors">Home</a>
+        <a href="#shop" data-nav-target="shop" class="py-1 text-[#4D6855] hover:text-[#19382A] transition-colors">Shop All</a>
+        <a href="#routine-section" data-nav-target="routine" class="py-1 text-[#4D6855] hover:text-[#19382A] transition-colors">Routine</a>
+        <a href="#philosophy" data-nav-target="philosophy" class="py-1 text-[#4D6855] hover:text-[#19382A] transition-colors">Philosophy</a>
+      </nav>
+
+      <!-- Brand Logotype (Centered) -->
+      <div class="text-center">
+        <a href="#home" class="inline-block group" aria-label="LUMORA SKIN Home">
+          <span class="block font-serif text-2xl sm:text-3xl tracking-[0.2em] font-semibold text-[#19382A]">LUMORA</span>
+          <span class="block text-[10px] uppercase tracking-[0.35em] text-[#6F8B76] font-semibold -mt-1 group-hover:text-[#19382A] transition-colors">SKIN</span>
+        </a>
+      </div>
+
+      <!-- Utilities (Search, Wishlist, Cart) -->
+      <div class="flex items-center gap-2 sm:gap-4">
+        <!-- Live Search Button -->
+        <button data-search-trigger class="p-2 text-[#19382A] hover:text-[#6F8B76] transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center rounded-full hover:bg-[#E8F0EA]" aria-label="Search essentials">
+          <i data-lucide="search" class="w-5 h-5"></i>
+        </button>
+
+        <!-- Wishlist Button -->
+        <button data-wishlist-trigger class="p-2 text-[#19382A] hover:text-[#6F8B76] transition-colors relative min-w-[44px] min-h-[44px] flex items-center justify-center rounded-full hover:bg-[#E8F0EA]" aria-label="View Saved Essentials">
+          <i data-lucide="heart" class="w-5 h-5"></i>
+          <span class="wishlist-count-badge hidden absolute top-1.5 right-1.5 bg-[#6F8B76] text-white text-[9px] font-bold w-4 h-4 rounded-full flex items-center justify-center">0</span>
+        </button>
+
+        <!-- Cart Trigger Button -->
+        <button data-cart-trigger class="flex items-center gap-2 py-2 px-3.5 bg-white border border-[#6F8B76] text-[#19382A] hover:bg-[#6F8B76] hover:text-white transition-colors text-xs uppercase tracking-wider font-bold rounded-lg min-h-[44px] shadow-sm" aria-label="View Shopping Bag">
+          <i data-lucide="shopping-bag" class="w-4 h-4"></i>
+          <span class="hidden sm:inline">Bag</span>
+          <span class="cart-count-badge bg-[#19382A] text-white text-[10px] px-1.5 py-0.5 rounded-full font-bold">0</span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Drawer -->
+  <div id="mobile-menu" class="hidden fixed inset-0 z-50 bg-black/60 backdrop-blur-sm" role="dialog" aria-modal="true" aria-label="Mobile Navigation Menu">
+    <div class="w-4/5 max-w-sm h-full bg-[#F8F5EF] p-6 flex flex-col justify-between shadow-2xl overflow-y-auto">
+      <div>
+        <div class="flex items-center justify-between pb-6 border-b border-[#E9E0D2]">
+          <div>
+            <div class="font-serif text-2xl font-bold tracking-[0.15em] text-[#19382A]">LUMORA SKIN</div>
+            <div class="text-[10px] uppercase tracking-widest text-[#6F8B76] font-semibold">Healthy skin, naturally.</div>
+          </div>
+          <button id="close-mobile-menu-btn" class="p-2 text-[#19382A] hover:text-[#6F8B76] min-w-[44px] min-h-[44px] flex items-center justify-center" aria-label="Close Mobile Navigation">
+            <i data-lucide="x" class="w-6 h-6"></i>
+          </button>
+        </div>
+
+        <nav class="flex flex-col gap-4 mt-6 text-sm uppercase tracking-widest font-semibold" aria-label="Mobile Navigation Links">
+          <a href="#home" data-nav-target="home" class="text-[#19382A] py-2 border-b border-[#E9E0D2] flex items-center justify-between">
+            <span>Home</span>
+            <i data-lucide="chevron-right" class="w-4 h-4 text-[#6F8B76]"></i>
+          </a>
+          <a href="#shop" data-nav-target="shop" class="text-[#4D6855] hover:text-[#19382A] py-2 border-b border-[#E9E0D2] flex items-center justify-between">
+            <span>Shop All Essentials</span>
+            <i data-lucide="chevron-right" class="w-4 h-4 text-[#6F8B76]"></i>
+          </a>
+          <a href="#routine-section" data-nav-target="routine" class="text-[#4D6855] hover:text-[#19382A] py-2 border-b border-[#E9E0D2] flex items-center justify-between">
+            <span>Build Your Routine</span>
+            <i data-lucide="chevron-right" class="w-4 h-4 text-[#6F8B76]"></i>
+          </a>
+          <a href="#philosophy" data-nav-target="philosophy" class="text-[#4D6855] hover:text-[#19382A] py-2 border-b border-[#E9E0D2] flex items-center justify-between">
+            <span>Brand Philosophy</span>
+            <i data-lucide="chevron-right" class="w-4 h-4 text-[#6F8B76]"></i>
+          </a>
+        </nav>
+      </div>
+
+      <div class="pt-6 border-t border-[#E9E0D2] text-xs text-[#4D6855] space-y-2">
+        <p class="font-bold text-[#19382A]">🌿 LUMORA SKIN</p>
+        <p>Simple skincare essentials made for your everyday routine.</p>
+        <p class="text-[10px] text-neutral-400">Portfolio Design Showcase</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       3. MAIN ROUTE VIEWS CONTAINER
+       ========================================================================= -->
+  <main class="flex-1" id="main-content">
+
+    <!-- -----------------------------------------------------------------------
+         VIEW A: HOMEPAGE (Editorial Hero, Pillars, Featured, Routine, Ingredients)
+         ----------------------------------------------------------------------- -->
+    <div id="view-home">
+      
+      <!-- HERO BANNER: 2-Column Premium Editorial Skincare Composition -->
+      <section class="relative bg-hero-ambient text-[#19382A] overflow-hidden min-h-[85vh] flex items-center border-b border-[#E9E0D2]" aria-label="LUMORA Introduction">
+        <!-- Subtle Organic Silhouette Decorations (5-10% Opacity) -->
+        <svg class="botanical-silhouette top-4 right-10 w-[450px] h-[450px] text-[#6F8B76] hidden sm:block" viewBox="0 0 200 200" fill="currentColor" aria-hidden="true">
+          <path d="M45,20 C80,25 120,60 140,110 C160,160 140,190 100,185 C60,180 30,140 25,90 C20,40 30,25 45,20 Z" opacity="0.6"/>
+          <path d="M120,30 C150,50 180,90 170,140 C160,180 120,195 90,170 C70,150 90,100 105,60 Z" opacity="0.4"/>
+        </svg>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24 w-full">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-center">
+            
+            <!-- Left Column: Editorial Headline & Copy -->
+            <div class="lg:col-span-7 space-y-6">
+              <!-- Botanical Pill -->
+              <div class="hero-badge">
+                <span class="w-2 h-2 rounded-full bg-[#6F8B76] inline-block"></span>
+                <span>LUMORA SKIN · Healthy skin, naturally.</span>
+              </div>
+              
+              <!-- Large Editorial Headline -->
+              <h1 class="font-serif text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-normal tracking-tight leading-[1.04] text-[#19382A]">
+                Your skin,<br><span class="italic font-light text-[#6F8B76]">your glow.</span>
+              </h1>
+
+              <!-- Skincare Focused Subheadline -->
+              <p class="text-base sm:text-lg text-[#4D6855] font-normal leading-relaxed max-w-xl">
+                Simple skincare essentials made for your everyday routine. Thoughtfully formulated with gentle, effective ingredients like Aloe Vera, Vitamin C, Hyaluronic Acid, and Ceramides.
+              </p>
+
+              <!-- CTA Actions -->
+              <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2">
+                <a href="#shop" data-nav-target="shop" class="btn-sage text-center shadow-md">
+                  Shop Collection
+                </a>
+                <a href="#routine-section" data-nav-target="routine" class="btn-outline-green text-center">
+                  Build Your Routine →
+                </a>
+              </div>
+
+              <!-- Reassurance Row -->
+              <div class="pt-6 border-t border-[#E9E0D2] flex flex-wrap items-center gap-6 text-xs text-[#4D6855] font-medium">
+                <div class="flex items-center gap-2">
+                  <i data-lucide="shield-check" class="w-4 h-4 text-[#6F8B76]"></i>
+                  <span>pH 5.5 Balanced</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <i data-lucide="sparkles" class="w-4 h-4 text-[#6F8B76]"></i>
+                  <span>Gentle Daily Actives</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <i data-lucide="truck" class="w-4 h-4 text-[#6F8B76]"></i>
+                  <span>Free Shipping over ₹999</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Column: Premium Skincare Hero Composition -->
+            <div class="lg:col-span-5 relative">
+              <div class="hero-product-frame aspect-[4/5] sm:aspect-square lg:aspect-[4/5] overflow-hidden">
+                <img 
+                  src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=1200&q=85" 
+                  alt="LUMORA Botanical Skincare Bottle in soft natural daylight" 
+                  class="w-full h-full object-cover object-center transform hover:scale-105 transition-botanical duration-700"
+                  loading="eager"
+                  onerror="window.handleImgError(this)"
+                >
+                
+                <!-- Floating Feature Badge -->
+                <div class="hero-floating-badge flex items-center justify-between">
+                  <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-[#E8F0EA] text-[#6F8B76] flex items-center justify-center flex-shrink-0">
+                      <i data-lucide="leaf" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                      <div class="text-xs font-bold text-[#19382A]">100% Gentle Formulation</div>
+                      <div class="text-[11px] text-[#4D6855]">Dermatologist tested for all skin types</div>
+                    </div>
+                  </div>
+                  <span class="text-xs font-serif font-bold text-[#6F8B76]">LUMORA</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 2: BRAND PILLARS / BENEFITS (Crisp White Canvas) -->
+      <section class="border-b border-[#E9E0D2] bg-white py-14" aria-label="Brand Philosophy Pillars">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+            <div class="p-5 bg-[#F8F5EF] rounded-xl border border-[#E9E0D2] hover:border-[#6F8B76] transition-colors">
+              <i data-lucide="sparkles" class="w-7 h-7 mx-auto mb-2 text-[#6F8B76]" aria-hidden="true"></i>
+              <h3 class="text-xs uppercase font-bold tracking-wider text-[#19382A]">Simple & Gentle</h3>
+              <p class="text-[11px] text-[#4D6855] mt-1">No complicated 12-step regimes. Just pure, effective daily essentials.</p>
+            </div>
+            <div class="p-5 bg-[#F8F5EF] rounded-xl border border-[#E9E0D2] hover:border-[#6F8B76] transition-colors">
+              <i data-lucide="leaf" class="w-7 h-7 mx-auto mb-2 text-[#6F8B76]" aria-hidden="true"></i>
+              <h3 class="text-xs uppercase font-bold tracking-wider text-[#19382A]">Proven Ingredients</h3>
+              <p class="text-[11px] text-[#4D6855] mt-1">Aloe, Niacinamide, Hyaluronic Acid, Ceramides & Peptides.</p>
+            </div>
+            <div class="p-5 bg-[#F8F5EF] rounded-xl border border-[#E9E0D2] hover:border-[#6F8B76] transition-colors">
+              <i data-lucide="shield" class="w-7 h-7 mx-auto mb-2 text-[#6F8B76]" aria-hidden="true"></i>
+              <h3 class="text-xs uppercase font-bold tracking-wider text-[#19382A]">Skin Barrier First</h3>
+              <p class="text-[11px] text-[#4D6855] mt-1">Buffered to optimal pH 5.5 to respect your skin's natural balance.</p>
+            </div>
+            <div class="p-5 bg-[#F8F5EF] rounded-xl border border-[#E9E0D2] hover:border-[#6F8B76] transition-colors">
+              <i data-lucide="heart" class="w-7 h-7 mx-auto mb-2 text-[#6F8B76]" aria-hidden="true"></i>
+              <h3 class="text-xs uppercase font-bold tracking-wider text-[#19382A]">100% Cruelty-Free</h3>
+              <p class="text-[11px] text-[#4D6855] mt-1">Kind to animals, kind to the planet, kind to your skin.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 3: FEATURED ESSENTIALS (Very Light Sage Ambient) -->
+      <section class="py-20 bg-lightgreen-ambient border-b border-[#E9E0D2]" aria-labelledby="featured-heading">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+            <div>
+              <span class="text-xs font-bold uppercase tracking-[0.25em] text-[#6F8B76] block mb-2">Curated Formulations</span>
+              <h2 id="featured-heading" class="font-serif text-3xl sm:text-4xl text-[#19382A] font-bold tracking-tight">Everyday Essentials</h2>
+              <p class="text-xs sm:text-sm text-[#4D6855] mt-1">Gentle, skin-friendly staples designed to cleanse, hydrate, treat, and shield.</p>
+            </div>
+            <a href="#shop" data-nav-target="shop" class="editorial-link text-xs uppercase tracking-wider font-bold text-[#19382A] mt-4 md:mt-0">
+              Explore All 6 Formulations →
+            </a>
+          </div>
+
+          <!-- Featured Grid Container (Rendered by app.js) -->
+          <div id="home-featured-products" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- Dynamically populated -->
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 4: BUILD YOUR ROUTINE (Soft Sage Green Canvas) -->
+      <section id="routine-section" class="py-20 bg-sage-ambient border-b border-[#E9E0D2]" aria-labelledby="routine-heading">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <div class="text-center max-w-2xl mx-auto mb-14">
+            <span class="text-xs font-bold uppercase tracking-[0.25em] text-[#6F8B76] block mb-2">Step-By-Step Simplicity</span>
+            <h2 id="routine-heading" class="font-serif text-3xl sm:text-4xl text-[#19382A] font-bold tracking-tight">Build Your Everyday Routine</h2>
+            <p class="text-xs sm:text-sm text-[#4D6855] mt-2">
+              Cleanse → Treat → Moisturize → Protect. A gentle, four-step ritual customized for your skin goal.
+            </p>
+          </div>
+
+          <!-- Routine 4 Steps Container (Rendered by app.js) -->
+          <div id="routine-steps-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+            <!-- Dynamically populated by app.js -->
+          </div>
+
+          <!-- Routine Bundle Summary Box (Rendered by app.js) -->
+          <div id="routine-bundle-summary">
+            <!-- Dynamically populated by app.js -->
+          </div>
+
+        </div>
+      </section>
+
+      <!-- SECTION 5: INGREDIENT SCIENCE & VISUAL IMAGERY (Warm Beige Canvas) -->
+      <section class="py-20 bg-beige-ambient text-[#19382A] border-b border-[#E9E0D2]" aria-label="Ingredient Transparency">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <div class="text-center max-w-2xl mx-auto mb-14">
+            <span class="text-xs font-bold uppercase tracking-[0.25em] text-[#6F8B76] block mb-2">Botanical Alchemy</span>
+            <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight">Ingredients Your Skin Understands</h2>
+            <p class="text-xs sm:text-sm text-[#4D6855] mt-2">
+              Clean, gentle, and effective. Nature’s most soothing botanicals harmonized with dermatologically proven skin actives.
+            </p>
+          </div>
+
+          <!-- Real Matching Visual Ingredient Tiles -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            
+            <!-- Tile 1: Aloe Vera -->
+            <div class="ingredient-tile flex flex-col">
+              <div class="aspect-[16/9] overflow-hidden bg-[#F8F5EF] relative">
+                <img 
+                  src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=800&q=80" 
+                  alt="Fresh organic Aloe Vera succulent with cooling gel" 
+                  class="w-full h-full object-cover transform hover:scale-105 transition-botanical duration-500"
+                  loading="lazy"
+                  onerror="window.handleImgError(this)"
+                >
+                <span class="absolute top-3 left-3 bg-[#19382A]/90 text-white text-[10px] uppercase font-bold tracking-wider px-2.5 py-1 rounded backdrop-blur-sm">
+                  Botanical Hydrator
+                </span>
+              </div>
+              <div class="p-6 flex-1 flex flex-col justify-between">
+                <div>
+                  <h3 class="font-serif text-xl font-bold text-[#19382A] mb-1">Organic Aloe Vera</h3>
+                  <div class="text-[11px] font-semibold text-[#6F8B76] uppercase tracking-wider mb-2">Deep Soothing & Cellular Moisture</div>
+                  <p class="text-xs text-[#4D6855] leading-relaxed">
+                    Cold-extracted from organic leaves, aloe juice calms daily redness, delivers vital electrolytes, and replenishes your natural moisture barrier.
+                  </p>
+                </div>
+                <div class="mt-4 pt-3 border-t border-[#E9E0D2] text-[11px] text-[#708577]">
+                  Featured in: <strong class="text-[#19382A]">Face Cleanser, Daily Sunscreen</strong>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tile 2: Vitamin C -->
+            <div class="ingredient-tile flex flex-col">
+              <div class="aspect-[16/9] overflow-hidden bg-[#F8F5EF] relative">
+                <img 
+                  src="https://images.unsplash.com/photo-1611080626919-7cf5a9dbab5b?auto=format&fit=crop&w=800&q=80" 
+                  alt="Fresh radiant citrus botanicals" 
+                  class="w-full h-full object-cover transform hover:scale-105 transition-botanical duration-500"
+                  loading="lazy"
+                  onerror="window.handleImgError(this)"
+                >
+                <span class="absolute top-3 left-3 bg-[#19382A]/90 text-white text-[10px] uppercase font-bold tracking-wider px-2.5 py-1 rounded backdrop-blur-sm">
+                  Skin Illuminator
+                </span>
+              </div>
+              <div class="p-6 flex-1 flex flex-col justify-between">
+                <div>
+                  <h3 class="font-serif text-xl font-bold text-[#19382A] mb-1">Stabilized Vitamin C</h3>
+                  <div class="text-[11px] font-semibold text-[#6F8B76] uppercase tracking-wider mb-2">Antioxidant Shield & Radiance</div>
+                  <p class="text-xs text-[#4D6855] leading-relaxed">
+                    Gentle 3-O-Ethyl Ascorbic Acid shields skin from daily environmental pollution, softens post-blemish marks, and restores lit-from-within glow.
+                  </p>
+                </div>
+                <div class="mt-4 pt-3 border-t border-[#E9E0D2] text-[11px] text-[#708577]">
+                  Featured in: <strong class="text-[#19382A]">Vitamin C Glow Serum</strong>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tile 3: Hyaluronic Acid -->
+            <div class="ingredient-tile flex flex-col">
+              <div class="aspect-[16/9] overflow-hidden bg-[#F8F5EF] relative">
+                <img 
+                  src="https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&fit=crop&w=800&q=80" 
+                  alt="Clear pristine water droplets and hydration concept" 
+                  class="w-full h-full object-cover transform hover:scale-105 transition-botanical duration-500"
+                  loading="lazy"
+                  onerror="window.handleImgError(this)"
+                >
+                <span class="absolute top-3 left-3 bg-[#19382A]/90 text-white text-[10px] uppercase font-bold tracking-wider px-2.5 py-1 rounded backdrop-blur-sm">
+                  Moisture Magnet
+                </span>
+              </div>
+              <div class="p-6 flex-1 flex flex-col justify-between">
+                <div>
+                  <h3 class="font-serif text-xl font-bold text-[#19382A] mb-1">Multi-Weight Hyaluronic Acid</h3>
+                  <div class="text-[11px] font-semibold text-[#6F8B76] uppercase tracking-wider mb-2">Multi-Layer Epidermal Hydration</div>
+                  <p class="text-xs text-[#4D6855] leading-relaxed">
+                    A triple-molecular weight complex penetrates surface and deeper epidermal layers, binding up to 1,000x its weight in water for plump, dewy skin.
+                  </p>
+                </div>
+                <div class="mt-4 pt-3 border-t border-[#E9E0D2] text-[11px] text-[#708577]">
+                  Featured in: <strong class="text-[#19382A]">Hyaluronic Moisturizer, Glow Serum</strong>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tile 4: Ceramides -->
+            <div class="ingredient-tile flex flex-col">
+              <div class="aspect-[16/9] overflow-hidden bg-[#F8F5EF] relative">
+                <img 
+                  src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=800&q=80" 
+                  alt="Clean scientific lipid barrier cream" 
+                  class="w-full h-full object-cover transform hover:scale-105 transition-botanical duration-500"
+                  loading="lazy"
+                  onerror="window.handleImgError(this)"
+                >
+                <span class="absolute top-3 left-3 bg-[#19382A]/90 text-white text-[10px] uppercase font-bold tracking-wider px-2.5 py-1 rounded backdrop-blur-sm">
+                  Barrier Restorative
+                </span>
+              </div>
+              <div class="p-6 flex-1 flex flex-col justify-between">
+                <div>
+                  <h3 class="font-serif text-xl font-bold text-[#19382A] mb-1">Skin-Identical Ceramides</h3>
+                  <div class="text-[11px] font-semibold text-[#6F8B76] uppercase tracking-wider mb-2">Lipid Matrix Fortification</div>
+                  <p class="text-xs text-[#4D6855] leading-relaxed">
+                    Bio-identical Ceramides (NP, AP, EOP) rebuild the intercellular mortar, locking in active moisture and shielding against dryness and flaking.
+                  </p>
+                </div>
+                <div class="mt-4 pt-3 border-t border-[#E9E0D2] text-[11px] text-[#708577]">
+                  Featured in: <strong class="text-[#19382A]">Hyaluronic Moisturizer, Night Cream</strong>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tile 5: Niacinamide + Zinc -->
+            <div class="ingredient-tile flex flex-col">
+              <div class="aspect-[16/9] overflow-hidden bg-[#F8F5EF] relative">
+                <img 
+                  src="https://images.unsplash.com/photo-1617897903246-719242758050?auto=format&fit=crop&w=800&q=80" 
+                  alt="Clean botanical dropper with green leaf shadow" 
+                  class="w-full h-full object-cover transform hover:scale-105 transition-botanical duration-500"
+                  loading="lazy"
+                  onerror="window.handleImgError(this)"
+                >
+                <span class="absolute top-3 left-3 bg-[#19382A]/90 text-white text-[10px] uppercase font-bold tracking-wider px-2.5 py-1 rounded backdrop-blur-sm">
+                  Clarifying Essential
+                </span>
+              </div>
+              <div class="p-6 flex-1 flex flex-col justify-between">
+                <div>
+                  <h3 class="font-serif text-xl font-bold text-[#19382A] mb-1">Niacinamide (5%) + Zinc PCA</h3>
+                  <div class="text-[11px] font-semibold text-[#6F8B76] uppercase tracking-wider mb-2">Pore Refining & Sebum Balance</div>
+                  <p class="text-xs text-[#4D6855] leading-relaxed">
+                    Calms congested T-zones, regulates midday shine, and visibly refines enlarged pores without causing tightness or stripping natural lipids.
+                  </p>
+                </div>
+                <div class="mt-4 pt-3 border-t border-[#E9E0D2] text-[11px] text-[#708577]">
+                  Featured in: <strong class="text-[#19382A]">Niacinamide Serum</strong>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tile 6: Peptides & Shea Butter -->
+            <div class="ingredient-tile flex flex-col">
+              <div class="aspect-[16/9] overflow-hidden bg-[#F8F5EF] relative">
+                <img 
+                  src="https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&w=800&q=80" 
+                  alt="Whipped organic shea butter and rich night cream" 
+                  class="w-full h-full object-cover transform hover:scale-105 transition-botanical duration-500"
+                  loading="lazy"
+                  onerror="window.handleImgError(this)"
+                >
+                <span class="absolute top-3 left-3 bg-[#19382A]/90 text-white text-[10px] uppercase font-bold tracking-wider px-2.5 py-1 rounded backdrop-blur-sm">
+                  Nocturnal Recovery
+                </span>
+              </div>
+              <div class="p-6 flex-1 flex flex-col justify-between">
+                <div>
+                  <h3 class="font-serif text-xl font-bold text-[#19382A] mb-1">Peptides & Shea Butter</h3>
+                  <div class="text-[11px] font-semibold text-[#6F8B76] uppercase tracking-wider mb-2">Firming Cushion & Overnight Repair</div>
+                  <p class="text-xs text-[#4D6855] leading-relaxed">
+                    Signaling peptides stimulate nocturnal collagen elasticity while unrefined raw shea butter blankets tired skin in a velvety recovery cocoon.
+                  </p>
+                </div>
+                <div class="mt-4 pt-3 border-t border-[#E9E0D2] text-[11px] text-[#708577]">
+                  Featured in: <strong class="text-[#19382A]">Overnight Repair Cream</strong>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      <!-- SECTION 6: SHOP BY SKIN CONCERN (Warm Ivory Canvas) -->
+      <section class="py-20 bg-[#F8F5EF] border-b border-[#E9E0D2]" aria-labelledby="concerns-heading">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center max-w-2xl mx-auto mb-12">
+            <span class="text-xs font-bold uppercase tracking-[0.25em] text-[#6F8B76] block mb-2">Targeted Care</span>
+            <h2 id="concerns-heading" class="font-serif text-3xl sm:text-4xl text-[#19382A] font-bold tracking-tight">Find What Your Skin Needs</h2>
+            <p class="text-xs text-[#4D6855] mt-2">Every skin type has unique needs. Explore our gentle targeted pairings.</p>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- Concern 1 -->
+            <div onclick="store.setFilter('concern', 'Dry & normal skin'); window.location.hash='shop';" class="concern-card group" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();store.setFilter('concern', 'Dry & normal skin'); window.location.hash='shop';}" aria-label="Filter products for Dry & Normal Skin">
+              <div class="concern-bottle-wrapper" aria-hidden="true">
+                <svg class="concern-bottle-svg" viewBox="0 0 80 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <defs>
+                    <linearGradient id="pump-glass-1" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" stop-color="#E2ECE5" />
+                      <stop offset="25%" stop-color="#FFFFFF" />
+                      <stop offset="65%" stop-color="#F2F6F3" />
+                      <stop offset="100%" stop-color="#D7E4DC" />
+                    </linearGradient>
+                    <linearGradient id="pump-cap-1" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" stop-color="#19382A" />
+                      <stop offset="40%" stop-color="#264A38" />
+                      <stop offset="80%" stop-color="#19382A" />
+                      <stop offset="100%" stop-color="#12281E" />
+                    </linearGradient>
+                    <filter id="shadow-blur-1" x="-20%" y="-20%" width="140%" height="140%">
+                      <feGaussianBlur stdDeviation="1.5" />
+                    </filter>
+                  </defs>
+                  <ellipse cx="40" cy="87" rx="19" ry="3.2" fill="#19382A" opacity="0.1" class="bottle-ground-shadow" filter="url(#shadow-blur-1)" />
+                  <rect x="27" y="36" width="26" height="50" rx="3.5" fill="url(#pump-glass-1)" stroke="#BDCEC4" stroke-width="0.75" />
+                  <path d="M28 42 Q40 43.5 52 42" stroke="#BDCEC4" stroke-width="0.75" fill="none" opacity="0.7" />
+                  <line x1="40" y1="36" x2="40" y2="82" stroke="#BDCEC4" stroke-width="0.75" opacity="0.5" stroke-dasharray="2 1" />
+                  <rect x="30" y="38" width="2" height="45" rx="1" fill="#FFFFFF" opacity="0.75" />
+                  <rect x="30" y="48" width="20" height="24" rx="1.5" fill="#FFFFFF" stroke="#E2EAE4" stroke-width="0.6" />
+                  <rect x="32" y="52" width="7" height="1.8" rx="0.9" fill="#6F8B76" />
+                  <line x1="32" y1="56.5" x2="48" y2="56.5" stroke="#19382A" stroke-width="0.8" stroke-linecap="round" />
+                  <line x1="32" y1="60.5" x2="45" y2="60.5" stroke="#8CA392" stroke-width="0.5" stroke-linecap="round" />
+                  <line x1="32" y1="63.5" x2="42" y2="63.5" stroke="#8CA392" stroke-width="0.5" stroke-linecap="round" />
+                  <line x1="32" y1="66.5" x2="46" y2="66.5" stroke="#8CA392" stroke-width="0.5" stroke-linecap="round" />
+                  <rect x="35" y="32" width="10" height="4.5" fill="#CAD7CF" stroke="#BDCEC4" stroke-width="0.5" />
+                  <rect x="33.5" y="28" width="13" height="4" rx="0.8" fill="url(#pump-cap-1)" />
+                  <rect x="37.5" y="21" width="5" height="7.5" fill="#3D614E" />
+                  <path d="M33 21 C33 18.5 35 16 39 16 L49 16 C51.5 16 52.5 17.5 52.5 19.5 L52.5 21.5 C52.5 22.5 51 23 48.5 23 L35 23 C33.8 23 33 22.2 33 21 Z" fill="url(#pump-cap-1)" />
+                  <line x1="51.5" y1="18.5" x2="51.5" y2="21" stroke="#3D614E" stroke-width="0.6" />
+                  <path d="M36 17 L48 17" stroke="#4D735E" stroke-width="0.6" stroke-linecap="round" />
+                </svg>
+              </div>
+              <h3 class="font-serif text-lg text-[#19382A] font-bold mb-1">Dry & Normal Skin</h3>
+              <p class="text-xs text-[#4D6855] leading-relaxed">Nourish with Aloe Vera, Glycerin, and multi-weight Hyaluronic Acid.</p>
+              <span class="inline-block text-[11px] font-bold uppercase tracking-wider text-[#6F8B76] mt-4">View Essentials →</span>
+            </div>
+
+            <!-- Concern 2 -->
+            <div onclick="store.setFilter('concern', 'Dull skin'); window.location.hash='shop';" class="concern-card group" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();store.setFilter('concern', 'Dull skin'); window.location.hash='shop';}" aria-label="Filter products for Dull Skin & Radiance">
+              <div class="concern-bottle-wrapper" aria-hidden="true">
+                <svg class="concern-bottle-svg" viewBox="0 0 80 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <defs>
+                    <linearGradient id="drop-glass-2" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" stop-color="#F7F1E6" />
+                      <stop offset="30%" stop-color="#FFFFFF" />
+                      <stop offset="70%" stop-color="#F9F3EA" />
+                      <stop offset="100%" stop-color="#EBDFCF" />
+                    </linearGradient>
+                    <linearGradient id="drop-collar-2" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" stop-color="#19382A" />
+                      <stop offset="45%" stop-color="#2D5240" />
+                      <stop offset="100%" stop-color="#19382A" />
+                    </linearGradient>
+                    <linearGradient id="gold-ring-2" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" stop-color="#B89B72" />
+                      <stop offset="50%" stop-color="#E2C9A6" />
+                      <stop offset="100%" stop-color="#B89B72" />
+                    </linearGradient>
+                    <filter id="shadow-blur-2" x="-20%" y="-20%" width="140%" height="140%">
+                      <feGaussianBlur stdDeviation="1.5" />
+                    </filter>
+                  </defs>
+                  <ellipse cx="40" cy="87" rx="18" ry="3.2" fill="#19382A" opacity="0.1" class="bottle-ground-shadow" filter="url(#shadow-blur-2)" />
+                  <path d="M28 47 C28 40.5 32.5 36.5 36 36 L44 36 C47.5 36.5 52 40.5 52 47 L52 82 C52 84.5 49.5 86.5 46 86.5 L34 86.5 C30.5 86.5 28 84.5 28 82 Z" fill="url(#drop-glass-2)" stroke="#D8CABE" stroke-width="0.75" />
+                  <path d="M29 80 C32 82 48 82 51 80 L51 82 C51 84 48.5 85.5 45.5 85.5 L34.5 85.5 C31.5 85.5 29 84 29 82 Z" fill="#D8CABE" opacity="0.4" />
+                  <path d="M31 46 C31 43 32.5 40 34 39 L34 81 C32 81 31 80 31 78 Z" fill="#FFFFFF" opacity="0.8" />
+                  <rect x="38.5" y="36" width="3" height="38" rx="1.2" fill="#E8DDD0" stroke="#D3C3B0" stroke-width="0.4" opacity="0.7" />
+                  <circle cx="40" cy="71" r="1.8" fill="#C5A880" opacity="0.85" />
+                  <rect x="30.5" y="50" width="19" height="23" rx="1.5" fill="#FFFFFF" stroke="#EBDDCF" stroke-width="0.6" />
+                  <rect x="32.5" y="53.5" width="7" height="1.8" rx="0.9" fill="#C5A880" />
+                  <line x1="32.5" y1="58" x2="47.5" y2="58" stroke="#19382A" stroke-width="0.8" stroke-linecap="round" />
+                  <line x1="32.5" y1="62" x2="45.5" y2="62" stroke="#A99B8B" stroke-width="0.5" stroke-linecap="round" />
+                  <line x1="32.5" y1="65" x2="42" y2="65" stroke="#A99B8B" stroke-width="0.5" stroke-linecap="round" />
+                  <line x1="32.5" y1="68" x2="46" y2="68" stroke="#A99B8B" stroke-width="0.5" stroke-linecap="round" />
+                  <rect x="33" y="34" width="14" height="2.2" rx="0.4" fill="url(#gold-ring-2)" />
+                  <rect x="33.5" y="27" width="13" height="7.5" rx="1" fill="url(#drop-collar-2)" />
+                  <line x1="36.5" y1="28.5" x2="36.5" y2="33.5" stroke="#3D614E" stroke-width="0.5" />
+                  <line x1="40" y1="28.5" x2="40" y2="33.5" stroke="#3D614E" stroke-width="0.5" />
+                  <line x1="43.5" y1="28.5" x2="43.5" y2="33.5" stroke="#3D614E" stroke-width="0.5" />
+                  <path d="M35.5 27 C35 22 36.5 15 40 15 C43.5 15 45 22 44.5 27 Z" fill="#1C382B" />
+                  <path d="M38.5 17 C39.5 17 40.5 19 40.5 24" stroke="#3D614E" stroke-width="0.6" stroke-linecap="round" fill="none" />
+                </svg>
+              </div>
+              <h3 class="font-serif text-lg text-[#19382A] font-bold mb-1">Dull Skin & Radiance</h3>
+              <p class="text-xs text-[#4D6855] leading-relaxed">Brighten with Vitamin C and Niacinamide for a fresh, lit-from-within glow.</p>
+              <span class="inline-block text-[11px] font-bold uppercase tracking-wider text-[#6F8B76] mt-4">View Essentials →</span>
+            </div>
+
+            <!-- Concern 3 -->
+            <div onclick="store.setFilter('concern', 'Oily skin'); window.location.hash='shop';" class="concern-card group" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();store.setFilter('concern', 'Oily skin'); window.location.hash='shop';}" aria-label="Filter products for Oily & Blemish-Prone Skin">
+              <div class="concern-bottle-wrapper" aria-hidden="true">
+                <svg class="concern-bottle-svg" viewBox="0 0 80 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <defs>
+                    <linearGradient id="zinc-glass-3" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" stop-color="#E5ECE7" />
+                      <stop offset="35%" stop-color="#FFFFFF" />
+                      <stop offset="70%" stop-color="#EDF3EF" />
+                      <stop offset="100%" stop-color="#D7E2DB" />
+                    </linearGradient>
+                    <linearGradient id="zinc-cap-3" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" stop-color="#162D23" />
+                      <stop offset="45%" stop-color="#264837" />
+                      <stop offset="100%" stop-color="#14281E" />
+                    </linearGradient>
+                    <filter id="shadow-blur-3" x="-20%" y="-20%" width="140%" height="140%">
+                      <feGaussianBlur stdDeviation="1.5" />
+                    </filter>
+                  </defs>
+                  <ellipse cx="40" cy="87" rx="16" ry="3.2" fill="#19382A" opacity="0.1" class="bottle-ground-shadow" filter="url(#shadow-blur-3)" />
+                  <rect x="29" y="37" width="22" height="49" rx="3" fill="url(#zinc-glass-3)" stroke="#BDCEC4" stroke-width="0.75" />
+                  <line x1="30" y1="44" x2="50" y2="44" stroke="#BDCEC4" stroke-width="0.6" opacity="0.6" />
+                  <line x1="40" y1="37" x2="40" y2="82" stroke="#BDCEC4" stroke-width="0.6" opacity="0.5" stroke-dasharray="2 1" />
+                  <rect x="31.5" y="39" width="1.8" height="44" rx="0.9" fill="#FFFFFF" opacity="0.75" />
+                  <rect x="31" y="49" width="18" height="24" rx="1.5" fill="#FFFFFF" stroke="#D1DDD5" stroke-width="0.6" />
+                  <rect x="33" y="53" width="7" height="1.8" rx="0.9" fill="#5B7865" />
+                  <line x1="33" y1="57.5" x2="47" y2="57.5" stroke="#19382A" stroke-width="0.8" stroke-linecap="round" />
+                  <line x1="33" y1="61.5" x2="45" y2="61.5" stroke="#7A9382" stroke-width="0.5" stroke-linecap="round" />
+                  <line x1="33" y1="64.5" x2="41" y2="64.5" stroke="#7A9382" stroke-width="0.5" stroke-linecap="round" />
+                  <line x1="33" y1="67.5" x2="46" y2="67.5" stroke="#7A9382" stroke-width="0.5" stroke-linecap="round" />
+                  <rect x="32" y="18" width="16" height="19" rx="1.5" fill="url(#zinc-cap-3)" />
+                  <rect x="35" y="14.5" width="10" height="4" rx="1" fill="#365745" />
+                  <line x1="33" y1="24" x2="47" y2="24" stroke="#2B4938" stroke-width="0.5" />
+                  <line x1="33" y1="30" x2="47" y2="30" stroke="#2B4938" stroke-width="0.5" />
+                  <line x1="35" y1="19" x2="35" y2="36" stroke="#466A55" stroke-width="0.6" opacity="0.6" />
+                </svg>
+              </div>
+              <h3 class="font-serif text-lg text-[#19382A] font-bold mb-1">Oily & Blemish-Prone</h3>
+              <p class="text-xs text-[#4D6855] leading-relaxed">Clarify and regulate sebum with 5% Niacinamide and Zinc PCA.</p>
+              <span class="inline-block text-[11px] font-bold uppercase tracking-wider text-[#6F8B76] mt-4">View Essentials →</span>
+            </div>
+
+            <!-- Concern 4 -->
+            <div onclick="store.setFilter('concern', 'Dry & tired skin'); window.location.hash='shop';" class="concern-card group" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();store.setFilter('concern', 'Dry & tired skin'); window.location.hash='shop';}" aria-label="Filter products for Dry & Tired Skin">
+              <div class="concern-bottle-wrapper" aria-hidden="true">
+                <svg class="concern-bottle-svg" viewBox="0 0 80 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <defs>
+                    <linearGradient id="jar-glass-4" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" stop-color="#F4EFE6" />
+                      <stop offset="30%" stop-color="#FFFFFF" />
+                      <stop offset="70%" stop-color="#F2ECE1" />
+                      <stop offset="100%" stop-color="#DFD3BE" />
+                    </linearGradient>
+                    <linearGradient id="jar-lid-4" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" stop-color="#142B20" />
+                      <stop offset="40%" stop-color="#264838" />
+                      <stop offset="80%" stop-color="#19382A" />
+                      <stop offset="100%" stop-color="#102219" />
+                    </linearGradient>
+                    <linearGradient id="lid-rim-4" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" stop-color="#BA9E76" />
+                      <stop offset="50%" stop-color="#DFCBAC" />
+                      <stop offset="100%" stop-color="#BA9E76" />
+                    </linearGradient>
+                    <filter id="shadow-blur-4" x="-20%" y="-20%" width="140%" height="140%">
+                      <feGaussianBlur stdDeviation="1.5" />
+                    </filter>
+                  </defs>
+                  <ellipse cx="40" cy="87" rx="23" ry="3.6" fill="#19382A" opacity="0.1" class="bottle-ground-shadow" filter="url(#shadow-blur-4)" />
+                  <rect x="20" y="47" width="40" height="39" rx="4.5" fill="url(#jar-glass-4)" stroke="#D4C6B4" stroke-width="0.75" />
+                  <path d="M21 78 L59 78 L59 82 C59 84.5 56.5 85.5 54 85.5 L26 85.5 C23.5 85.5 21 84.5 21 82 Z" fill="#D6C7B2" opacity="0.35" />
+                  <path d="M22 55 Q40 58 58 55" stroke="#CBBBA4" stroke-width="0.7" fill="none" opacity="0.6" />
+                  <rect x="23.5" y="49" width="2.2" height="28" rx="1.1" fill="#FFFFFF" opacity="0.7" />
+                  <rect x="23" y="58" width="34" height="15" rx="1.5" fill="#FFFFFF" stroke="#E3D7C6" stroke-width="0.6" />
+                  <rect x="25.5" y="61" width="6" height="1.8" rx="0.9" fill="#8C7A65" />
+                  <line x1="25.5" y1="65" x2="52.5" y2="65" stroke="#19382A" stroke-width="0.8" stroke-linecap="round" />
+                  <line x1="25.5" y1="68" x2="47" y2="68" stroke="#9E8D77" stroke-width="0.5" stroke-linecap="round" />
+                  <rect x="21" y="33" width="38" height="3" rx="1.2" fill="#2F5340" />
+                  <rect x="19" y="35" width="42" height="12.5" rx="1.8" fill="url(#jar-lid-4)" />
+                  <line x1="19.5" y1="46.5" x2="60.5" y2="46.5" stroke="url(#lid-rim-4)" stroke-width="0.8" />
+                  <line x1="21" y1="36" x2="59" y2="36" stroke="#466E56" stroke-width="0.6" />
+                </svg>
+              </div>
+              <h3 class="font-serif text-lg text-[#19382A] font-bold mb-1">Dry & Tired Skin</h3>
+              <p class="text-xs text-[#4D6855] leading-relaxed">Replenish overnight with rejuvenating Peptides and organic Shea Butter.</p>
+              <span class="inline-block text-[11px] font-bold uppercase tracking-wider text-[#6F8B76] mt-4">View Essentials →</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 7: SAMPLE EXPERIENCES & REVIEWS (Soft Cream Canvas) -->
+      <section class="py-20 bg-cream-ambient border-b border-[#E9E0D2]" aria-label="Sample Customer Reviews">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center max-w-xl mx-auto mb-12">
+            <span class="text-xs font-bold uppercase tracking-[0.25em] text-[#6F8B76] block mb-2">Concept Experiences</span>
+            <h2 class="font-serif text-3xl sm:text-4xl text-[#19382A] font-bold tracking-tight">Product Feedback & Sample Reviews</h2>
+            <p class="text-xs text-[#4D6855] mt-1">Demonstration customer feedback illustrating everyday skincare experiences.</p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="bg-white p-6 rounded-xl border border-[#E9E0D2] shadow-sm flex flex-col justify-between">
+              <div>
+                <div class="flex text-[#6F8B76] mb-3">
+                  <i data-lucide="star" class="w-4 h-4 fill-[#6F8B76]"></i>
+                  <i data-lucide="star" class="w-4 h-4 fill-[#6F8B76]"></i>
+                  <i data-lucide="star" class="w-4 h-4 fill-[#6F8B76]"></i>
+                  <i data-lucide="star" class="w-4 h-4 fill-[#6F8B76]"></i>
+                  <i data-lucide="star" class="w-4 h-4 fill-[#6F8B76]"></i>
+                </div>
+                <h4 class="font-serif text-lg font-bold text-[#19382A] mb-2">"Visible glow within a week!"</h4>
+                <p class="text-xs text-[#4D6855] leading-relaxed">
+                  The Vitamin C Glow Serum has transformed my morning routine. It sinks in immediately, doesn't turn sticky, and my skin looks awake and lit from within.
+                </p>
+              </div>
+              <div class="mt-4 pt-3 border-t border-[#E9E0D2] flex items-center justify-between text-xs">
+                <span class="font-bold text-[#19382A]">Sample Review (Pooja M.)</span>
+                <span class="text-[10px] bg-[#E8F0EA] text-[#19382A] px-2 py-0.5 rounded font-semibold border border-[#D5E3D8]">Sample Review</span>
+              </div>
+            </div>
+
+            <div class="bg-white p-6 rounded-xl border border-[#E9E0D2] shadow-sm flex flex-col justify-between">
+              <div>
+                <div class="flex text-[#6F8B76] mb-3">
+                  <i data-lucide="star" class="w-4 h-4 fill-[#6F8B76]"></i>
+                  <i data-lucide="star" class="w-4 h-4 fill-[#6F8B76]"></i>
+                  <i data-lucide="star" class="w-4 h-4 fill-[#6F8B76]"></i>
+                  <i data-lucide="star" class="w-4 h-4 fill-[#6F8B76]"></i>
+                  <i data-lucide="star" class="w-4 h-4 fill-[#6F8B76]"></i>
+                </div>
+                <h4 class="font-serif text-lg font-bold text-[#19382A] mb-2">"Sheer, comfortable finish"</h4>
+                <p class="text-xs text-[#4D6855] leading-relaxed">
+                  LUMORA Daily Sunscreen blends easily and feels lightweight on the skin without leaving a heavy film. Perfect under daily makeup!
+                </p>
+              </div>
+              <div class="mt-4 pt-3 border-t border-[#E9E0D2] flex items-center justify-between text-xs">
+                <span class="font-bold text-[#19382A]">Sample Review (Ananya G.)</span>
+                <span class="text-[10px] bg-[#E8F0EA] text-[#19382A] px-2 py-0.5 rounded font-semibold border border-[#D5E3D8]">Sample Review</span>
+              </div>
+            </div>
+
+            <div class="bg-white p-6 rounded-xl border border-[#E9E0D2] shadow-sm flex flex-col justify-between">
+              <div>
+                <div class="flex text-[#6F8B76] mb-3">
+                  <i data-lucide="star" class="w-4 h-4 fill-[#6F8B76]"></i>
+                  <i data-lucide="star" class="w-4 h-4 fill-[#6F8B76]"></i>
+                  <i data-lucide="star" class="w-4 h-4 fill-[#6F8B76]"></i>
+                  <i data-lucide="star" class="w-4 h-4 fill-[#6F8B76]"></i>
+                  <i data-lucide="star" class="w-4 h-4 fill-[#6F8B76]"></i>
+                </div>
+                <h4 class="font-serif text-lg font-bold text-[#19382A] mb-2">"Zero post-wash dryness"</h4>
+                <p class="text-xs text-[#4D6855] leading-relaxed">
+                  The Hydrating Cleanser is so gentle. Aloe vera and glycerin leave my dry skin feeling soft and refreshed rather than stripped like plastic.
+                </p>
+              </div>
+              <div class="mt-4 pt-3 border-t border-[#E9E0D2] flex items-center justify-between text-xs">
+                <span class="font-bold text-[#19382A]">Sample Review (Aanya P.)</span>
+                <span class="text-[10px] bg-[#E8F0EA] text-[#19382A] px-2 py-0.5 rounded font-semibold border border-[#D5E3D8]">Sample Review</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 8: NEWSLETTER (Deep Botanical Green Canvas) -->
+      <section class="py-16 bg-deepgreen-ambient text-white" aria-labelledby="dispatch-heading">
+        <div class="max-w-3xl mx-auto px-4 text-center">
+          <span class="text-xs font-bold uppercase tracking-[0.25em] text-[#A8C2B0] block mb-2">Join LUMORA</span>
+          <h2 id="dispatch-heading" class="font-serif text-3xl sm:text-4xl text-white font-bold mb-3">Begin Your Glow Journey</h2>
+          <p class="text-xs sm:text-sm text-[#E8F0EA] max-w-md mx-auto mb-6">
+            Get 15% off your first order with code <strong class="text-white underline">LUMORA15</strong>, plus simple skincare tips for your everyday routine.
+          </p>
+          <form onsubmit="event.preventDefault(); showToast('Subscribed', 'Welcome to LUMORA! Use code LUMORA15 at checkout for 15% off.', 'info'); this.reset();" class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+            <label for="newsletter-email" class="sr-only">Your Email Address</label>
+            <input 
+              id="newsletter-email"
+              type="email" 
+              required 
+              placeholder="Enter your email..." 
+              class="flex-1 px-4 py-3 text-xs rounded-lg focus:outline-none bg-white text-[#19382A] placeholder-[#708577] min-h-[44px]"
+            >
+            <button type="submit" class="btn-sage px-6 py-3 text-xs shadow-md">
+              Subscribe
+            </button>
+          </form>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- -----------------------------------------------------------------------
+         VIEW B: PRODUCT LISTING PAGE (PLP - Shop All)
+         ----------------------------------------------------------------------- -->
+    <div id="view-shop" class="hidden">
+      
+      <!-- PLP Header -->
+      <section class="border-b border-[#E9E0D2] py-12 bg-beige-ambient" aria-label="Catalog Header">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="max-w-2xl">
+            <nav class="text-[11px] uppercase tracking-wider text-[#4D6855] mb-2" aria-label="Breadcrumb">
+              <a href="#home" class="hover:text-[#19382A]">Home</a> / <span class="text-[#19382A] font-semibold">Shop All Formulations</span>
+            </nav>
+            <h1 class="font-serif text-4xl sm:text-5xl text-[#19382A] font-bold tracking-tight mb-2">All Essentials</h1>
+            <p class="text-xs sm:text-sm text-[#4D6855] leading-relaxed">
+              Gentle, everyday skincare crafted with effective ingredients. Transparent formulations with zero harmful fillers.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- PLP Filters Toolbar -->
+      <section class="border-b border-[#E9E0D2] bg-white sticky top-20 z-30 shadow-sm" aria-label="Product Filters">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+          <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+            
+            <!-- Category Tabs -->
+            <div class="flex items-center gap-2 overflow-x-auto pb-1 lg:pb-0 scrollbar-none text-xs" role="tablist" aria-label="Category Selection">
+              <button data-filter-category="all" role="tab" class="px-3.5 py-2 border border-[#6F8B76] bg-[#6F8B76] text-white font-semibold uppercase tracking-wider rounded-lg transition-colors whitespace-nowrap min-h-[40px]">
+                All (6)
+              </button>
+              <button data-filter-category="Cleanser" role="tab" class="px-3.5 py-2 border border-[#E9E0D2] bg-white text-[#19382A] hover:border-[#6F8B76] font-semibold uppercase tracking-wider rounded-lg transition-colors whitespace-nowrap min-h-[40px]">
+                Cleansers (1)
+              </button>
+              <button data-filter-category="Serum" role="tab" class="px-3.5 py-2 border border-[#E9E0D2] bg-white text-[#19382A] hover:border-[#6F8B76] font-semibold uppercase tracking-wider rounded-lg transition-colors whitespace-nowrap min-h-[40px]">
+                Serums (2)
+              </button>
+              <button data-filter-category="Moisturizer" role="tab" class="px-3.5 py-2 border border-[#E9E0D2] bg-white text-[#19382A] hover:border-[#6F8B76] font-semibold uppercase tracking-wider rounded-lg transition-colors whitespace-nowrap min-h-[40px]">
+                Moisturizers (2)
+              </button>
+              <button data-filter-category="Sunscreen" role="tab" class="px-3.5 py-2 border border-[#E9E0D2] bg-white text-[#19382A] hover:border-[#6F8B76] font-semibold uppercase tracking-wider rounded-lg transition-colors whitespace-nowrap min-h-[40px]">
+                Sunscreen (1)
+              </button>
+            </div>
+
+            <!-- Concern & Sort -->
+            <div class="flex items-center gap-3 text-xs">
+              <!-- Skin Concern -->
+              <div class="flex items-center gap-1.5">
+                <label for="filter-concern-select" class="text-[#4D6855] font-bold uppercase tracking-wider text-[10px]">Concern:</label>
+                <select id="filter-concern-select" class="border border-[#E9E0D2] py-2 px-2.5 bg-white text-[#19382A] font-semibold rounded-lg focus:outline-none focus:border-[#6F8B76] min-h-[40px]">
+                  <option value="all">All Skin Concerns</option>
+                  <option value="Dry & normal skin">Dry & Normal Skin</option>
+                  <option value="Dull skin">Dull Skin (Glow)</option>
+                  <option value="Dry skin">Dry Skin (Hydration)</option>
+                  <option value="Oily skin">Oily Skin (Pores)</option>
+                  <option value="All skin types">All Skin Types</option>
+                  <option value="Dry & tired skin">Dry & Tired Skin</option>
+                </select>
+              </div>
+
+              <!-- Sort -->
+              <div class="flex items-center gap-1.5 border-l border-[#E9E0D2] pl-3">
+                <label for="filter-sort-select" class="text-[#4D6855] font-bold uppercase tracking-wider text-[10px]">Sort:</label>
+                <select id="filter-sort-select" class="border border-[#E9E0D2] py-2 px-2.5 bg-white text-[#19382A] font-semibold rounded-lg focus:outline-none focus:border-[#6F8B76] min-h-[40px]">
+                  <option value="featured">Featured Essentials</option>
+                  <option value="price-asc">Price: Low to High</option>
+                  <option value="price-desc">Price: High to Low</option>
+                  <option value="rating">Customer Rating</option>
+                </select>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- PLP Catalog Body -->
+      <section class="py-12 bg-[#F8F5EF] min-h-[600px]" aria-label="Product Listings">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <div class="flex items-center justify-between mb-8">
+            <span id="shop-results-counter" class="text-xs uppercase tracking-wider text-[#4D6855] font-semibold">
+              Showing 6 of 6 simple everyday essentials
+            </span>
+          </div>
+
+          <!-- Grid Container (Rendered by app.js) -->
+          <div id="shop-products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Dynamically populated by app.js -->
+          </div>
+
+          <!-- Empty State -->
+          <div id="shop-empty-state" class="hidden text-center py-20 bg-white border border-dashed border-[#E9E0D2] rounded-xl p-8">
+            <i data-lucide="search-x" class="w-10 h-10 text-neutral-400 mx-auto mb-3" aria-hidden="true"></i>
+            <h3 class="font-serif text-2xl text-[#19382A] mb-2 font-bold">No Essentials Found</h3>
+            <p class="text-xs text-[#4D6855] max-w-sm mx-auto mb-6">Try resetting your filters to explore our complete collection of everyday essentials.</p>
+            <button id="reset-empty-filters-btn" class="btn-sage px-6 py-2.5 text-xs tracking-wider">
+              Reset Filters
+            </button>
+          </div>
+
+        </div>
+      </section>
+
+    </div>
+
+    <!-- -----------------------------------------------------------------------
+         VIEW C: PRODUCT DETAIL PAGE (PDP)
+         ----------------------------------------------------------------------- -->
+    <div id="view-pdp" class="hidden">
+      
+      <section class="py-10 bg-[#F8F5EF] border-b border-[#E9E0D2]" aria-label="Product Details">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <!-- Breadcrumb -->
+          <nav class="text-[11px] uppercase tracking-wider text-[#4D6855] mb-8 font-medium" aria-label="Breadcrumb">
+            <a href="#home" class="hover:text-[#19382A]">Home</a> / 
+            <a href="#shop" class="hover:text-[#19382A]">Shop</a> / 
+            <span id="pdp-breadcrumb-category" class="hover:text-[#19382A]">Serum</span> / 
+            <span id="pdp-breadcrumb-name" class="text-[#19382A] font-bold">Vitamin C Glow Serum</span>
+          </nav>
+
+          <!-- PDP Main Grid -->
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 bg-white p-6 sm:p-10 rounded-2xl border border-[#E9E0D2] shadow-sm">
+            
+            <!-- LEFT COLUMN: Gallery -->
+            <div class="lg:col-span-7 flex flex-col-reverse md:flex-row gap-4">
+              <!-- Thumbnails -->
+              <div id="pdp-thumbnails-container" class="flex md:flex-col gap-3 overflow-x-auto md:overflow-y-auto">
+                <!-- Populated dynamically -->
+              </div>
+              
+              <!-- Main Feature Image -->
+              <div class="flex-1 aspect-square bg-[#F8F5EF] rounded-xl border border-[#E9E0D2] overflow-hidden relative">
+                <img id="pdp-main-image" src="" alt="Product view" class="w-full h-full object-cover">
+                <span id="pdp-badge" class="absolute top-4 left-4 bg-[#19382A] text-white text-[10px] uppercase tracking-widest font-bold px-3 py-1 rounded">
+                  Bestseller
+                </span>
+              </div>
+            </div>
+
+            <!-- RIGHT COLUMN: Details, Quantity, Add to Cart & Buy Now -->
+            <div class="lg:col-span-5 flex flex-col justify-between">
+              <div>
+                
+                <!-- Category & Best For Pill -->
+                <div class="flex items-center justify-between mb-3">
+                  <span id="pdp-best-for" class="bg-[#E8F0EA] text-[#19382A] text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+                    Dull skin
+                  </span>
+                  <div class="flex items-center gap-1 text-xs text-[#19382A]">
+                    <i data-lucide="star" class="w-4 h-4 fill-[#6F8B76] text-[#6F8B76]" aria-hidden="true"></i>
+                    <span class="font-bold">4.9</span>
+                    <span class="text-neutral-400">(412 reviews)</span>
+                  </div>
+                </div>
+
+                <!-- Product Name -->
+                <h1 id="pdp-title" class="font-serif text-3xl sm:text-4xl text-[#19382A] font-bold tracking-tight mb-1">
+                  Vitamin C Glow Serum
+                </h1>
+
+                <p id="pdp-subtitle" class="text-xs text-[#6F8B76] font-semibold uppercase tracking-wider mb-4">
+                  10% Vitamin C + 2% Niacinamide Radiance Elixir
+                </p>
+
+                <!-- Price -->
+                <div class="flex items-baseline gap-3 mb-2">
+                  <span id="pdp-price" class="font-serif text-3xl font-bold text-[#19382A]">₹799</span>
+                  <span class="text-xs text-[#4D6855]">MRP (Inclusive of all taxes)</span>
+                </div>
+
+                <!-- Short description -->
+                <p id="pdp-short-desc" class="text-xs text-[#4D6855] leading-relaxed pb-5 border-b border-[#E9E0D2]">
+                  A lightweight daily serum designed to give your skincare routine a fresh, radiant feel.
+                </p>
+
+                <!-- Key Benefits Checklist -->
+                <div class="py-5 border-b border-[#E9E0D2]">
+                  <h4 class="text-xs font-bold uppercase tracking-wider text-[#19382A] mb-2.5">Key Benefits:</h4>
+                  <ul id="pdp-benefits-list" class="space-y-2">
+                    <!-- Populated dynamically -->
+                  </ul>
+                </div>
+
+                <!-- Key Ingredients Badges -->
+                <div class="py-5 border-b border-[#E9E0D2]">
+                  <h4 class="text-xs font-bold uppercase tracking-wider text-[#19382A] mb-2.5">Key Ingredients:</h4>
+                  <div id="pdp-ingredients-tags" class="flex flex-wrap gap-1.5">
+                    <!-- Populated dynamically -->
+                  </div>
+                </div>
+
+                <!-- Quantity, Add to Cart, and Buy Now Controls -->
+                <div class="pt-6 space-y-3">
+                  <div class="flex items-center gap-3">
+                    <!-- Quantity Selector: − 1 + -->
+                    <div class="flex items-center border border-[#E9E0D2] rounded-lg bg-white overflow-hidden">
+                      <button id="pdp-qty-minus" aria-label="Decrease quantity" class="w-10 h-11 flex items-center justify-center text-sm font-bold text-[#19382A] hover:bg-[#E8F0EA]">−</button>
+                      <span id="pdp-qty-value" class="w-9 text-center text-xs font-bold text-[#19382A]">1</span>
+                      <button id="pdp-qty-plus" aria-label="Increase quantity" class="w-10 h-11 flex items-center justify-center text-sm font-bold text-[#19382A] hover:bg-[#E8F0EA]">+</button>
+                    </div>
+
+                    <!-- Add to Cart Button -->
+                    <button id="pdp-add-to-cart-btn" class="btn-sage flex-1 py-3 text-xs uppercase tracking-wider font-bold flex items-center justify-center gap-2 shadow-sm">
+                      <i data-lucide="shopping-bag" class="w-4 h-4"></i>
+                      <span>Add to Cart</span>
+                    </button>
+                  </div>
+
+                  <!-- Buy Now Button (Instant Checkout) -->
+                  <button id="pdp-buy-now-btn" class="btn-buynow w-full py-3.5 text-xs uppercase tracking-wider font-bold flex items-center justify-center gap-2 shadow-md">
+                    <span>⚡ Buy Now · Instant Checkout</span>
+                  </button>
+                </div>
+
+                <!-- Trust Callouts -->
+                <div class="grid grid-cols-3 gap-2 mt-6 py-3 bg-[#E8F0EA] rounded-lg text-center text-[10px] uppercase tracking-wider text-[#19382A] font-bold">
+                  <div>✓ Dermatologist Tested</div>
+                  <div>✓ Cruelty-Free</div>
+                  <div>✓ pH 5.5 Balanced</div>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+
+          <!-- IN-DEPTH TABS: Key Actives, How to Use, INCI Ingredients -->
+          <div class="mt-12 bg-white p-6 sm:p-10 rounded-2xl border border-[#E9E0D2]">
+            <h3 class="font-serif text-2xl text-[#19382A] font-bold mb-6">Formula & Actives Transparency</h3>
+
+            <!-- Key Actives Grid -->
+            <div id="pdp-key-actives-grid" class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+              <!-- Populated dynamically -->
+            </div>
+
+            <!-- Collapsible Sections -->
+            <div class="space-y-4">
+              <!-- How to Use -->
+              <details class="border border-[#E9E0D2] rounded-xl p-5 group" open>
+                <summary class="flex items-center justify-between cursor-pointer font-bold text-xs uppercase tracking-wider text-[#19382A]">
+                  <span>How to Incorporate Into Your Everyday Routine</span>
+                  <i data-lucide="chevron-down" class="accordion-icon w-4 h-4 text-[#6F8B76] transition-transform duration-300"></i>
+                </summary>
+                <div class="pt-4 text-xs text-[#4D6855] leading-relaxed">
+                  <p id="pdp-usage-instructions"></p>
+                </div>
+              </details>
+
+              <!-- INCI Ingredients -->
+              <details class="border border-[#E9E0D2] rounded-xl p-5 group">
+                <summary class="flex items-center justify-between cursor-pointer font-bold text-xs uppercase tracking-wider text-[#19382A]">
+                  <span>Full Transparent Ingredient List (INCI)</span>
+                  <i data-lucide="chevron-down" class="accordion-icon w-4 h-4 text-[#6F8B76] transition-transform duration-300"></i>
+                </summary>
+                <div class="pt-4 text-xs text-[#4D6855] leading-relaxed">
+                  <p id="pdp-full-inci" class="font-mono text-[11px]"></p>
+                </div>
+              </details>
+            </div>
+
+            <!-- Customer Reviews Section -->
+            <div class="mt-10 pt-8 border-t border-[#E9E0D2]">
+              <div class="flex items-baseline justify-between mb-4">
+                <h4 class="font-serif text-2xl text-[#19382A] font-bold">Customer Feedback</h4>
+                <span class="text-xs text-[#6F8B76] font-semibold">100% Verified Buyers</span>
+              </div>
+              <div id="pdp-reviews-list">
+                <!-- Populated dynamically -->
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+    </div>
+
+    <!-- -----------------------------------------------------------------------
+         VIEW D: PHILOSOPHY & BRAND MANIFESTO
+         ----------------------------------------------------------------------- -->
+    <div id="view-philosophy" class="hidden">
+      
+      <section class="py-20 bg-beige-ambient border-b border-[#E9E0D2]" aria-labelledby="manifesto-heading">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+          <span class="text-xs font-bold uppercase tracking-[0.3em] text-[#6F8B76] block mb-3">Brand Philosophy</span>
+          <h1 id="manifesto-heading" class="font-serif text-4xl sm:text-6xl text-[#19382A] font-bold tracking-tight mb-4">
+            Healthy skin, naturally.
+          </h1>
+          <p class="text-base text-[#4D6855] leading-relaxed max-w-2xl mx-auto">
+            LUMORA is a modern skincare brand focused on simple, everyday skincare using gentle and effective ingredients. We believe skincare shouldn't be confusing, overwhelming, or harsh.
+          </p>
+        </div>
+      </section>
+
+      <section class="py-20 bg-[#F8F5EF]" aria-label="Brand Core Values">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 space-y-16">
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center bg-white p-8 rounded-2xl border border-[#E9E0D2] shadow-sm">
+            <div>
+              <span class="text-[10px] uppercase font-bold tracking-widest text-[#6F8B76] block mb-2">Our Promise 01</span>
+              <h2 class="font-serif text-2xl sm:text-3xl text-[#19382A] font-bold mb-3">Gentle, Proven Actives</h2>
+              <p class="text-xs sm:text-sm text-[#4D6855] leading-relaxed mb-3">
+                We formulate with ingredients that have decades of clinical evidence: Aloe Vera to soothe, Vitamin C to brighten, Hyaluronic Acid to hydrate, Niacinamide to balance, Ceramides to lock in moisture, and Zinc Oxide to protect.
+              </p>
+              <p class="text-xs sm:text-sm text-[#4D6855] leading-relaxed">
+                No stripping sulfates, no artificial dyes, and no overpowering synthetic fragrances.
+              </p>
+            </div>
+            <div class="aspect-[4/3] bg-[#F8F5EF] rounded-xl border border-[#E9E0D2] overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1556228722-d9b3be373b98?auto=format&fit=crop&w=1000&q=85" alt="Clean soothing water drops" class="w-full h-full object-cover" loading="lazy" onerror="window.handleImgError(this)">
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center md:flex-row-reverse bg-white p-8 rounded-2xl border border-[#E9E0D2] shadow-sm">
+            <div class="md:order-2">
+              <span class="text-[10px] uppercase font-bold tracking-widest text-[#6F8B76] block mb-2">Our Promise 02</span>
+              <h2 class="font-serif text-2xl sm:text-3xl text-[#19382A] font-bold mb-3">Everyday Simplicity</h2>
+              <p class="text-xs sm:text-sm text-[#4D6855] leading-relaxed mb-3">
+                You don't need a complicated 12-step routine that takes 45 minutes every morning. Our curated 4-step sequence—Cleanse, Treat, Moisturize, Protect—covers everything your skin barrier needs to thrive.
+              </p>
+              <p class="text-xs sm:text-sm text-[#4D6855] leading-relaxed">
+                Consistent everyday care creates lasting skin health and effortless radiance.
+              </p>
+            </div>
+            <div class="md:order-1 aspect-[4/3] bg-[#F8F5EF] rounded-xl border border-[#E9E0D2] overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=1000&q=85" alt="Clean dropper bottles" class="w-full h-full object-cover" loading="lazy" onerror="window.handleImgError(this)">
+            </div>
+          </div>
+
+          <div class="text-center pt-8">
+            <a href="#shop" data-nav-target="shop" class="btn-sage px-8 py-4 text-xs tracking-wider uppercase inline-block shadow-md">
+              Explore the Collection
+            </a>
+          </div>
+
+        </div>
+      </section>
+
+    </div>
+
+  </main>
+
+  <!-- =========================================================================
+       4. SLIDE-OVER CART DRAWER
+       ========================================================================= -->
+  <div id="cart-drawer" class="hidden fixed inset-0 z-50 overflow-hidden" role="dialog" aria-modal="true" aria-labelledby="cart-drawer-title">
+    <div id="cart-backdrop" class="drawer-backdrop fixed inset-0 bg-black/50 backdrop-blur-sm"></div>
+
+    <div class="fixed inset-y-0 right-0 max-w-full flex pl-10">
+      <div id="cart-panel" class="drawer-panel w-screen max-w-md bg-white flex flex-col shadow-2xl">
+        
+        <!-- Cart Header -->
+        <div class="p-6 border-b border-[#E9E0D2] flex items-center justify-between bg-[#F8F5EF]">
+          <div>
+            <h2 id="cart-drawer-title" class="font-serif text-2xl text-[#19382A] font-bold">Your Bag</h2>
+            <div class="text-[11px] text-[#6F8B76] uppercase tracking-wider font-semibold">LUMORA SKIN Checkout</div>
+          </div>
+          <button id="close-cart-btn" class="p-2 text-[#19382A] hover:text-[#6F8B76] min-w-[44px] min-h-[44px] flex items-center justify-center" aria-label="Close Shopping Bag">
+            <i data-lucide="x" class="w-5 h-5"></i>
+          </button>
+        </div>
+
+        <!-- Free Shipping Meter -->
+        <div class="px-6 py-3 bg-[#E8F0EA] border-b border-[#E9E0D2]">
+          <div id="cart-shipping-message" class="text-xs text-[#19382A] mb-2 font-medium">
+            Add more to unlock complimentary free express delivery
+          </div>
+          <div class="w-full bg-[#E9E0D2] h-2 rounded-full overflow-hidden">
+            <div id="cart-shipping-bar" class="bg-[#6F8B76] h-full transition-all duration-500 rounded-full" style="width: 0%;"></div>
+          </div>
+        </div>
+
+        <!-- Cart Scrollable Content -->
+        <div class="flex-1 overflow-y-auto px-6 py-2">
+          <!-- Items List -->
+          <div id="cart-items-container">
+            <!-- Dynamically populated by app.js -->
+          </div>
+
+          <!-- Empty State -->
+          <div id="cart-empty-state" class="hidden text-center py-16">
+            <i data-lucide="shopping-bag" class="w-10 h-10 text-neutral-300 mx-auto mb-3" aria-hidden="true"></i>
+            <h3 class="font-serif text-xl text-[#19382A] font-bold mb-1">Your Bag is Empty</h3>
+            <p class="text-xs text-[#4D6855] mb-6">Discover our gentle, everyday skincare essentials.</p>
+            <a href="#shop" onclick="closeOverlay(document.getElementById('cart-drawer'));" class="btn-sage inline-block px-6 py-3 text-xs">
+              Explore Essentials
+            </a>
+          </div>
+
+          <!-- Promo Code Module -->
+          <div class="pt-4 border-t border-[#E9E0D2] mt-4">
+            <div class="text-[10px] uppercase tracking-wider font-bold text-[#4D6855] mb-1">
+              Demo Offer Code: <strong class="text-[#19382A]">LUMORA15</strong> (15% off)
+            </div>
+            <form id="cart-promo-form" class="flex gap-2 mb-2">
+              <label for="cart-promo-input" class="sr-only">Promotional Discount Code</label>
+              <input 
+                type="text" 
+                id="cart-promo-input" 
+                placeholder="ENTER CODE (e.g. LUMORA15)" 
+                class="flex-1 px-3 py-2 text-xs border border-[#E9E0D2] rounded-lg uppercase focus:border-[#6F8B76] focus:outline-none min-h-[44px]"
+              >
+              <button type="submit" class="btn-outline-green px-4 py-2 text-xs min-h-[44px]">Apply</button>
+            </form>
+            <div id="cart-promo-active" class="hidden"></div>
+          </div>
+        </div>
+
+        <!-- Cart Footer / Summary -->
+        <div id="cart-footer" class="p-6 border-t border-[#E9E0D2] bg-[#F8F5EF] space-y-3">
+          <div class="space-y-1.5 text-xs">
+            <div class="flex justify-between text-[#4D6855]">
+              <span>Subtotal:</span>
+              <span id="cart-subtotal" class="font-bold text-[#19382A]">₹0</span>
+            </div>
+            <div id="cart-discount-row" class="hidden flex justify-between text-[#6F8B76] font-bold">
+              <span>Savings:</span>
+              <span id="cart-discount-amount">-₹0</span>
+            </div>
+            <div class="flex justify-between text-[#4D6855]">
+              <span>Delivery:</span>
+              <span id="cart-shipping" class="font-bold text-[#19382A]">Complimentary</span>
+            </div>
+            <div class="flex justify-between text-base font-serif font-bold text-[#19382A] pt-2 border-t border-[#E9E0D2]">
+              <span>Total:</span>
+              <span id="cart-total">₹0</span>
+            </div>
+          </div>
+
+          <button id="proceed-checkout-btn" class="btn-sage w-full py-4 text-xs tracking-wider uppercase font-bold flex items-center justify-center gap-2 shadow-md">
+            <span>Proceed to Checkout</span>
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </button>
+          
+          <div class="text-[10px] text-center text-[#4D6855] uppercase tracking-widest font-semibold">
+            100% Secure Simulated Checkout · Free Shipping Over ₹999
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       5. WISHLIST DRAWER
+       ========================================================================= -->
+  <div id="wishlist-drawer" class="hidden fixed inset-0 z-50 overflow-hidden" role="dialog" aria-modal="true" aria-labelledby="wishlist-drawer-title">
+    <div id="wishlist-backdrop" class="drawer-backdrop fixed inset-0 bg-black/50 backdrop-blur-sm"></div>
+
+    <div class="fixed inset-y-0 right-0 max-w-full flex pl-10">
+      <div id="wishlist-panel" class="drawer-panel w-screen max-w-md bg-white flex flex-col shadow-2xl">
+        <div class="p-6 border-b border-[#E9E0D2] flex items-center justify-between bg-[#F8F5EF]">
+          <div>
+            <h2 id="wishlist-drawer-title" class="font-serif text-2xl text-[#19382A] font-bold">Saved Essentials</h2>
+            <div class="text-[11px] text-[#6F8B76] uppercase tracking-wider font-semibold">Personal Wishlist</div>
+          </div>
+          <button id="close-wishlist-btn" class="p-2 text-[#19382A] hover:text-[#6F8B76] min-w-[44px] min-h-[44px] flex items-center justify-center" aria-label="Close Wishlist">
+            <i data-lucide="x" class="w-5 h-5"></i>
+          </button>
+        </div>
+
+        <div class="flex-1 overflow-y-auto px-6 py-2">
+          <div id="wishlist-items-container"></div>
+          <div id="wishlist-empty-state" class="hidden text-center py-20">
+            <i data-lucide="heart" class="w-10 h-10 text-neutral-300 mx-auto mb-3" aria-hidden="true"></i>
+            <h3 class="font-serif text-xl text-[#19382A] font-bold mb-1">No Saved Essentials</h3>
+            <p class="text-xs text-[#4D6855] mb-6">Click the heart icon on any essential to save it to your wishlist.</p>
+            <a href="#shop" onclick="closeOverlay(document.getElementById('wishlist-drawer'));" class="btn-sage inline-block px-6 py-3 text-xs">
+              Explore Collection
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       6. QUICK VIEW MODAL
+       ========================================================================= -->
+  <div id="quick-view-modal" class="hidden fixed inset-0 z-50 overflow-y-auto" role="dialog" aria-modal="true" aria-label="Quick Product View">
+    <div id="quick-view-backdrop" class="modal-backdrop fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4">
+      <div class="modal-content relative w-full max-w-3xl bg-white border border-[#E9E0D2] rounded-2xl shadow-2xl overflow-hidden">
+        <button id="close-quick-view-btn" class="absolute top-4 right-4 z-20 text-[#19382A] hover:text-[#6F8B76] p-2 bg-white/90 rounded-full min-w-[44px] min-h-[44px] flex items-center justify-center border border-[#E9E0D2]" aria-label="Close Quick View">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+        <div id="quick-view-body">
+          <!-- Dynamically populated by app.js -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       7. CHECKOUT SIMULATION MODAL
+       ========================================================================= -->
+  <div id="checkout-modal" class="hidden fixed inset-0 z-50 overflow-y-auto" role="dialog" aria-modal="true" aria-labelledby="checkout-modal-title">
+    <div class="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4">
+      <div class="relative w-full max-w-2xl bg-white border border-[#E9E0D2] rounded-2xl shadow-2xl p-6 md:p-8 max-h-[90vh] overflow-y-auto">
+        <button id="close-checkout-btn" class="absolute top-4 right-4 text-[#19382A] hover:text-[#6F8B76] min-w-[44px] min-h-[44px] flex items-center justify-center" aria-label="Close Checkout">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+
+        <!-- Step Container -->
+        <div id="checkout-step-container">
+          
+          <!-- DEMO NOTICE BANNER -->
+          <div class="p-3.5 bg-[#E8F0EA] border border-[#6F8B76]/40 rounded-xl mb-6">
+            <div class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#19382A]">
+              <i data-lucide="shield-check" class="w-4 h-4 text-[#6F8B76] flex-shrink-0"></i>
+              <span>Demo Checkout — No Real Payment Processed</span>
+            </div>
+            <p class="text-[11px] text-[#4D6855] mt-1 leading-relaxed">
+              This is a prototype demonstration storefront. Please do not enter real financial information, card numbers, or passwords.
+            </p>
+          </div>
+
+          <div class="border-b border-[#E9E0D2] pb-4 mb-6">
+            <div class="text-[10px] uppercase tracking-widest text-[#6F8B76] font-bold">LUMORA SKIN Order</div>
+            <h2 id="checkout-modal-title" class="font-serif text-3xl text-[#19382A] font-bold">Shipping & Payment</h2>
+          </div>
+
+          <form id="checkout-form" class="space-y-6">
+            
+            <!-- Contact & Shipping Address -->
+            <div>
+              <h3 class="text-xs uppercase font-bold tracking-wider text-[#19382A] mb-3">1. Contact & Delivery Address</h3>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+                <div>
+                  <label for="checkout-fname" class="block text-[10px] uppercase font-bold text-[#4D6855] mb-1">First Name *</label>
+                  <input id="checkout-fname" type="text" required placeholder="e.g. Maya" class="w-full p-3 border border-[#E9E0D2] rounded-lg focus:border-[#6F8B76] focus:outline-none min-h-[44px]">
+                </div>
+                <div>
+                  <label for="checkout-lname" class="block text-[10px] uppercase font-bold text-[#4D6855] mb-1">Last Name *</label>
+                  <input id="checkout-lname" type="text" required placeholder="e.g. Sharma" class="w-full p-3 border border-[#E9E0D2] rounded-lg focus:border-[#6F8B76] focus:outline-none min-h-[44px]">
+                </div>
+                <div class="sm:col-span-2">
+                  <label for="checkout-email" class="block text-[10px] uppercase font-bold text-[#4D6855] mb-1">Email (for simulated order receipt) *</label>
+                  <input id="checkout-email" type="email" required placeholder="name@example.com" class="w-full p-3 border border-[#E9E0D2] rounded-lg focus:border-[#6F8B76] focus:outline-none min-h-[44px]">
+                </div>
+                <div class="sm:col-span-2">
+                  <label for="checkout-address" class="block text-[10px] uppercase font-bold text-[#4D6855] mb-1">Street Address *</label>
+                  <input id="checkout-address" type="text" required placeholder="Apartment, flat, or street" class="w-full p-3 border border-[#E9E0D2] rounded-lg focus:border-[#6F8B76] focus:outline-none min-h-[44px]">
+                </div>
+                <div>
+                  <label for="checkout-city" class="block text-[10px] uppercase font-bold text-[#4D6855] mb-1">City *</label>
+                  <input id="checkout-city" type="text" required placeholder="e.g. Mumbai" class="w-full p-3 border border-[#E9E0D2] rounded-lg focus:border-[#6F8B76] focus:outline-none min-h-[44px]">
+                </div>
+                <div>
+                  <label for="checkout-postal" class="block text-[10px] uppercase font-bold text-[#4D6855] mb-1">6-Digit PIN Code *</label>
+                  <input id="checkout-postal" type="text" required placeholder="e.g. 400001" maxlength="6" class="w-full p-3 border border-[#E9E0D2] rounded-lg focus:border-[#6F8B76] focus:outline-none min-h-[44px]">
+                </div>
+              </div>
+            </div>
+
+            <!-- Delivery method -->
+            <div>
+              <h3 class="text-xs uppercase font-bold tracking-wider text-[#19382A] mb-2">2. Delivery Service</h3>
+              <div class="p-3 border border-[#6F8B76] bg-[#E8F0EA] rounded-lg flex items-center justify-between text-xs">
+                <div>
+                  <span class="font-bold text-[#19382A]">Complimentary Express Courier</span>
+                  <div class="text-[10px] text-[#4D6855]">2–3 business days · Tracked delivery across India</div>
+                </div>
+                <span class="font-bold text-[#6F8B76]">Free</span>
+              </div>
+            </div>
+
+            <!-- Payment Simulation -->
+            <div>
+              <h3 class="text-xs uppercase font-bold tracking-wider text-[#19382A] mb-2">3. Payment Method (Demo Simulation Mode)</h3>
+              <div class="p-4 border-2 border-[#6F8B76] bg-[#F2F6F2] rounded-xl space-y-2">
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center gap-2.5">
+                    <span class="w-5 h-5 rounded-full bg-[#6F8B76] flex items-center justify-center text-white text-xs font-bold">✓</span>
+                    <span class="font-bold text-xs text-[#19382A]">Simulated 1-Click Test Payment</span>
+                  </div>
+                  <span class="text-[10px] bg-[#E8F0EA] text-[#19382A] px-2.5 py-0.5 rounded font-semibold border border-[#D5E3D8]">Interactive Test Mode</span>
+                </div>
+                <p class="text-[11px] text-[#4D6855] leading-relaxed">
+                  No actual credit card, UPI, or CVV details are required or collected. Submitting will authorize a simulated transaction and display an instant order confirmation screen.
+                </p>
+              </div>
+            </div>
+
+            <!-- Order Review in modal -->
+            <div class="border-t border-[#E9E0D2] pt-4">
+              <div id="checkout-summary-items" class="space-y-1 mb-3"></div>
+              <div class="flex justify-between font-serif text-xl font-bold text-[#19382A]">
+                <span>Total Amount:</span>
+                <span id="checkout-final-total">₹0</span>
+              </div>
+            </div>
+
+            <button id="checkout-submit-btn" type="submit" class="btn-sage w-full py-4 text-xs tracking-wider uppercase font-bold shadow-md">
+              Place Demo Order (Simulated)
+            </button>
+          </form>
+        </div>
+
+        <!-- Success Container -->
+        <div id="checkout-success-container" class="hidden text-center py-10">
+          <div class="w-16 h-16 bg-[#6F8B76] text-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-md">
+            <i data-lucide="check" class="w-8 h-8"></i>
+          </div>
+          <span class="text-xs uppercase tracking-widest font-bold text-[#6F8B76] block mb-1">Simulated Order Authorized</span>
+          <h2 class="font-serif text-3xl sm:text-4xl text-[#19382A] font-bold mb-3">Thank You for Your Order!</h2>
+          <p class="text-xs text-[#4D6855] max-w-md mx-auto mb-6 leading-relaxed">
+            Your simulated order receipt has been generated. Your skincare essentials are being prepared with love and natural care.
+          </p>
+          <div class="inline-block bg-[#F8F5EF] border border-[#E9E0D2] rounded-xl px-6 py-4 text-xs mb-8">
+            <span class="text-[#4D6855] uppercase tracking-wider block text-[10px] font-bold">Order Reference:</span>
+            <span id="confirmation-order-id" class="font-mono font-bold text-[#19382A] text-base">LUM-729148</span>
+            <span class="text-[#4D6855] block text-[11px] mt-1">Simulated Charged: <strong id="confirmation-total" class="text-[#19382A]">₹0</strong></span>
+          </div>
+          <div>
+            <button id="confirmation-continue-btn" class="btn-sage px-8 py-3.5 text-xs tracking-wider uppercase font-bold">
+              Continue Shopping
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       8. UNIVERSAL INFORMATIONAL MODAL
+       ========================================================================= -->
+  <div id="info-modal" class="hidden fixed inset-0 z-50 overflow-y-auto" role="dialog" aria-modal="true" aria-labelledby="info-modal-title">
+    <div class="modal-backdrop fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4">
+      <div class="modal-content relative w-full max-w-2xl bg-white border border-[#E9E0D2] rounded-2xl shadow-2xl p-6 md:p-8">
+        <button id="close-info-modal-btn" class="absolute top-4 right-4 text-[#19382A] hover:text-[#6F8B76] p-2 min-w-[44px] min-h-[44px] flex items-center justify-center" aria-label="Close Dialog">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+        <div class="border-b border-[#E9E0D2] pb-4 mb-6">
+          <span id="info-modal-subtitle" class="text-[10px] uppercase tracking-widest text-[#6F8B76] font-bold block mb-1">LUMORA SKIN Guide</span>
+          <h2 id="info-modal-title" class="font-serif text-2xl sm:text-3xl text-[#19382A] font-bold">Policy Title</h2>
+        </div>
+        <div id="info-modal-body" class="space-y-4"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       9. LIVE SEARCH MODAL
+       ========================================================================= -->
+  <div id="search-modal" class="hidden fixed inset-0 z-50" role="dialog" aria-modal="true" aria-label="Search essentials">
+    <div class="fixed inset-0 bg-black/60 backdrop-blur-sm"></div>
+    <div class="relative max-w-2xl mx-auto mt-20 px-4">
+      <div class="bg-white border border-[#E9E0D2] rounded-2xl shadow-2xl p-6">
+        <div class="flex items-center justify-between pb-4 border-b border-[#E9E0D2]">
+          <div class="flex items-center gap-3 flex-1">
+            <i data-lucide="search" class="w-5 h-5 text-[#6F8B76]" aria-hidden="true"></i>
+            <label for="site-search-input" class="sr-only">Search essentials or ingredients</label>
+            <input 
+              id="site-search-input" 
+              type="text" 
+              placeholder="Search cleanser, vitamin C, hyaluronic acid, sunscreen..." 
+              class="w-full text-sm placeholder-neutral-400 focus:outline-none min-h-[44px]"
+            >
+          </div>
+          <button id="close-search-btn" class="p-2 text-[#19382A] hover:text-[#6F8B76] min-w-[44px] min-h-[44px] flex items-center justify-center" aria-label="Close Search">
+            <i data-lucide="x" class="w-5 h-5"></i>
+          </button>
+        </div>
+
+        <!-- Live Results List -->
+        <div id="search-results-list" class="mt-4 max-h-80 overflow-y-auto">
+          <!-- Populated dynamically -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       10. TOAST NOTIFICATIONS CONTAINER
+       ========================================================================= -->
+  <div id="toast-container" aria-live="polite" aria-atomic="true"></div>
+
+  <!-- =========================================================================
+       11. LUXURY BOTANICAL FOOTER
+       ========================================================================= -->
+  <footer class="bg-[#12281E] text-white pt-16 pb-12 border-t border-[#19382A]" role="contentinfo">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-16 border-b border-[#1E3E2E]">
+        
+        <!-- Brand Summary -->
+        <div class="lg:col-span-2 space-y-4">
+          <a href="#home" class="inline-block" aria-label="LUMORA SKIN Home">
+            <span class="block font-serif text-3xl tracking-[0.2em] font-bold text-white">LUMORA</span>
+            <span class="block text-[10px] uppercase tracking-[0.35em] text-[#A8C2B0] -mt-1 font-semibold">SKIN</span>
+          </a>
+          <p class="text-xs text-[#C8D6CD] max-w-sm leading-relaxed">
+            Healthy skin, naturally. Modern skincare brand focused on simple, everyday skincare using gentle and effective ingredients.
+          </p>
+          <div class="text-[11px] text-[#A8C2B0]">
+            🌿 pH 5.5 Balanced · 100% Cruelty-Free · Eco-Conscious Packaging
+          </div>
+        </div>
+
+        <!-- Column 1: Shop Categories -->
+        <div>
+          <h4 class="text-xs uppercase font-bold tracking-widest text-white mb-4">Everyday Essentials</h4>
+          <ul class="space-y-2.5 text-xs text-[#C8D6CD]">
+            <li><a href="#shop" onclick="store.setFilter('category','Cleansers');" class="hover:text-white transition-colors">Hydrating Cleanser (₹499)</a></li>
+            <li><a href="#shop" onclick="store.setFilter('category','Serums');" class="hover:text-white transition-colors">Vitamin C Glow Serum (₹799)</a></li>
+            <li><a href="#shop" onclick="store.setFilter('category','Serums');" class="hover:text-white transition-colors">Niacinamide Serum (₹649)</a></li>
+            <li><a href="#shop" onclick="store.setFilter('category','Moisturizers');" class="hover:text-white transition-colors">Hyaluronic Moisturizer (₹699)</a></li>
+            <li><a href="#shop" onclick="store.setFilter('category','Sunscreen');" class="hover:text-white transition-colors">Daily Sunscreen SPF 50 (₹599)</a></li>
+            <li><a href="#shop" onclick="store.setFilter('category','Moisturizers');" class="hover:text-white transition-colors">Overnight Repair Cream (₹899)</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 2: Rituals & Story -->
+        <div>
+          <h4 class="text-xs uppercase font-bold tracking-widest text-white mb-4">Ritual & Concept</h4>
+          <ul class="space-y-2.5 text-xs text-[#C8D6CD]">
+            <li><a href="#routine-section" class="hover:text-white transition-colors">Build Your Routine</a></li>
+            <li><a href="#philosophy" class="hover:text-white transition-colors">Brand Philosophy</a></li>
+            <li><a href="#" data-info-trigger="philosophy" class="hover:text-white transition-colors">Gentle Ingredients</a></li>
+            <li><a href="#" data-info-trigger="shipping" class="hover:text-white transition-colors">Shipping & Returns</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Customer Care -->
+        <div>
+          <h4 class="text-xs uppercase font-bold tracking-widest text-white mb-4">Client Support</h4>
+          <ul class="space-y-2.5 text-xs text-[#C8D6CD]">
+            <li><a href="#" data-info-trigger="shipping" class="hover:text-white transition-colors">Free Delivery Over ₹999</a></li>
+            <li><a href="#" data-wishlist-trigger class="hover:text-white transition-colors">Saved Wishlist</a></li>
+            <li><a href="#" data-info-trigger="privacy" class="hover:text-white transition-colors">Privacy Policy</a></li>
+            <li><a href="#" data-info-trigger="terms" class="hover:text-white transition-colors">Terms of Service</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-[#A8C2B0]">
+        <div>
+          © 2026 LUMORA SKIN. Healthy skin, naturally. (Portfolio Demo Storefront).
+        </div>
+        <div class="flex gap-6 uppercase tracking-wider">
+          <a href="#" data-info-trigger="privacy" class="hover:text-white">Privacy</a>
+          <a href="#" data-info-trigger="terms" class="hover:text-white">Terms</a>
+          <a href="#" data-info-trigger="shipping" class="hover:text-white">Shipping</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Application Scripts -->
+  <script src="js/products.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

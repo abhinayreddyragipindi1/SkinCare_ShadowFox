@@ -1,0 +1,596 @@
+/* ==========================================================================
+   LUMORA SKIN - High-End Botanical Skincare Design System
+   Palette:
+     Main Canvas (Warm ivory / creamy white): #F8F5EF
+     Secondary Canvas (Soft warm beige):      #F1EDE4
+     Soft Sage Section:                       #E8F0EA
+     Very Light Green:                        #F2F6F2
+     Warm Beige Accent:                       #E9E0D2
+     Deep Botanical Green (Text & Headings):  #19382A
+     Sage Accent (CTAs & Badges):             #6F8B76
+     Card White:                              #FFFFFF
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  
+  /* LUMORA Refined Palette Tokens */
+  --color-ivory: #F8F5EF;
+  --color-beige-soft: #F1EDE4;
+  --color-sage-soft: #E8F0EA;
+  --color-sage-tint: #F2F6F2;
+  --color-beige-warm: #E9E0D2;
+  --color-deep-green: #19382A;
+  --color-deep-green-dark: #12281E;
+  --color-sage: #6F8B76;
+  --color-sage-hover: #5A7460;
+  --color-sage-subtle: #EEF4F0;
+  --color-text-muted: #4D6855;
+  --color-text-light: #708577;
+  --color-card-white: #FFFFFF;
+  --color-border: #E9E0D2;
+  --color-border-subtle: #E2D9CC;
+}
+
+/* Base resets & typography */
+html {
+  scroll-behavior: smooth;
+  font-family: var(--font-sans);
+  background-color: var(--color-ivory);
+  color: var(--color-deep-green);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  overflow-x: hidden;
+  width: 100%;
+  background-color: var(--color-ivory);
+  color: var(--color-deep-green);
+}
+
+body.modal-open {
+  overflow: hidden !important;
+  touch-action: none;
+}
+
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+.font-sans {
+  font-family: var(--font-sans);
+}
+
+/* Accessible High-Contrast Focus Ring */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+summary:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--color-sage) !important;
+  outline-offset: 3px !important;
+}
+
+/* Custom Botanical Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-ivory);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-beige-warm);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-sage);
+}
+
+/* Micro-interactions & animations */
+.transition-botanical {
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Ambient Background Depth Utilities */
+.bg-hero-ambient {
+  background: 
+    radial-gradient(circle at 82% 22%, rgba(111, 139, 118, 0.10), transparent 42%),
+    radial-gradient(circle at 14% 80%, rgba(233, 224, 210, 0.50), transparent 48%),
+    var(--color-ivory);
+}
+
+.bg-cream-ambient {
+  background: 
+    radial-gradient(circle at 75% 30%, rgba(111, 139, 118, 0.07), transparent 50%),
+    radial-gradient(circle at 20% 70%, rgba(233, 224, 210, 0.35), transparent 50%),
+    var(--color-ivory);
+}
+
+.bg-sage-ambient {
+  background: 
+    radial-gradient(circle at 85% 15%, rgba(111, 139, 118, 0.12), transparent 45%),
+    radial-gradient(circle at 10% 90%, rgba(248, 245, 239, 0.65), transparent 50%),
+    var(--color-sage-soft);
+}
+
+.bg-beige-ambient {
+  background: 
+    radial-gradient(circle at 70% 20%, rgba(111, 139, 118, 0.08), transparent 45%),
+    radial-gradient(circle at 20% 80%, rgba(248, 245, 239, 0.55), transparent 40%),
+    var(--color-beige-soft);
+}
+
+.bg-lightgreen-ambient {
+  background: 
+    radial-gradient(circle at 80% 25%, rgba(111, 139, 118, 0.08), transparent 40%),
+    radial-gradient(circle at 15% 75%, rgba(233, 224, 210, 0.35), transparent 50%),
+    var(--color-sage-tint);
+}
+
+.bg-deepgreen-ambient {
+  background: 
+    radial-gradient(circle at 80% 20%, rgba(111, 139, 118, 0.22), transparent 50%),
+    radial-gradient(circle at 15% 85%, rgba(18, 40, 30, 0.6), transparent 55%),
+    var(--color-deep-green);
+}
+
+/* Subtle Botanical Silhouette Overlays */
+.botanical-silhouette {
+  position: absolute;
+  pointer-events: none;
+  opacity: 0.09;
+  z-index: 0;
+  transition: opacity 0.4s ease;
+}
+
+/* Product Card Media & Hover Effect */
+.product-card {
+  background-color: var(--color-card-white);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(25, 56, 42, 0.04);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s ease;
+}
+
+.product-card:hover {
+  border-color: var(--color-sage);
+  box-shadow: 0 14px 34px rgba(25, 56, 42, 0.08);
+  transform: translateY(-4px);
+}
+
+.product-card-media {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--color-ivory);
+  aspect-ratio: 1 / 1;
+}
+
+.product-card-media .primary-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+}
+
+.product-card-media .secondary-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transform: scale(1.04);
+  transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+}
+
+.product-card:hover .primary-img {
+  opacity: 0;
+  transform: scale(1.04);
+}
+
+.product-card:hover .secondary-img {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Editorial Underline Effect */
+.editorial-link {
+  position: relative;
+  display: inline-block;
+  color: var(--color-deep-green);
+  font-weight: 600;
+}
+
+.editorial-link::after {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 1.5px;
+  bottom: -2px;
+  left: 0;
+  background-color: var(--color-sage);
+  transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.editorial-link:hover::after {
+  width: 100%;
+}
+
+/* LUMORA Button Styles (Minimum 44px touch targets) */
+.btn-sage {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  background-color: var(--color-sage);
+  color: #FFFFFF;
+  border: 1px solid var(--color-sage);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  border-radius: 8px;
+  padding: 11px 24px;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+
+.btn-sage:hover {
+  background-color: var(--color-sage-hover);
+  border-color: var(--color-sage-hover);
+  color: #FFFFFF;
+  box-shadow: 0 4px 14px rgba(111, 139, 118, 0.3);
+}
+
+.btn-dark-green {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  background-color: var(--color-deep-green);
+  color: #FFFFFF;
+  border: 1px solid var(--color-deep-green);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  border-radius: 8px;
+  padding: 11px 24px;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+
+.btn-dark-green:hover {
+  background-color: var(--color-sage);
+  border-color: var(--color-sage);
+  color: #FFFFFF;
+  box-shadow: 0 4px 14px rgba(25, 56, 42, 0.25);
+}
+
+.btn-outline-green {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  background-color: var(--color-card-white);
+  color: var(--color-deep-green);
+  border: 1.5px solid var(--color-border);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  border-radius: 8px;
+  padding: 11px 24px;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+
+.btn-outline-green:hover {
+  background-color: var(--color-deep-green);
+  border-color: var(--color-deep-green);
+  color: #FFFFFF;
+  box-shadow: 0 4px 14px rgba(25, 56, 42, 0.15);
+}
+
+/* Buy Now Express Button */
+.btn-buynow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  background-color: var(--color-deep-green);
+  color: #FFFFFF;
+  border: 1px solid var(--color-deep-green);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  border-radius: 8px;
+  padding: 11px 20px;
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+
+.btn-buynow:hover {
+  background-color: var(--color-sage);
+  border-color: var(--color-sage);
+  box-shadow: 0 4px 14px rgba(111, 139, 118, 0.3);
+}
+
+/* Add to Bag Button & Added Feedback Animation */
+.btn-add-bag {
+  min-height: 38px;
+  position: relative;
+  transition: transform 0.15s ease, background-color 0.25s ease, box-shadow 0.2s ease;
+}
+
+.btn-add-bag:active {
+  transform: scale(0.96);
+}
+
+.btn-added-feedback {
+  background-color: var(--color-deep-green) !important;
+  border-color: var(--color-deep-green) !important;
+  color: #FFFFFF !important;
+  transform: scale(0.98);
+  box-shadow: 0 0 0 3px rgba(111, 139, 118, 0.45) !important;
+}
+
+/* Hero Badge Pill */
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background-color: rgba(232, 240, 234, 0.85);
+  border: 1px solid rgba(111, 139, 118, 0.35);
+  color: var(--color-deep-green);
+  backdrop-filter: blur(8px);
+}
+
+/* Hero Product Frame */
+.hero-product-frame {
+  position: relative;
+  background: radial-gradient(circle at 50% 50%, rgba(248, 245, 239, 0.9), rgba(233, 224, 210, 0.45));
+  border-radius: 20px;
+  border: 1px solid var(--color-border);
+  box-shadow: 0 20px 48px rgba(25, 56, 42, 0.08);
+  overflow: hidden;
+}
+
+/* Floating Feature Badge on Hero */
+.hero-floating-badge {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  background-color: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 14px 18px;
+  box-shadow: 0 8px 24px rgba(25, 56, 42, 0.06);
+}
+
+/* Ingredient Visual Card */
+.ingredient-tile {
+  background-color: var(--color-card-white);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.ingredient-tile:hover {
+  transform: translateY(-3px);
+  border-color: var(--color-sage);
+  box-shadow: 0 10px 26px rgba(25, 56, 42, 0.07);
+}
+
+/* Drawer Transitions */
+.drawer-backdrop {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.drawer-backdrop.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.drawer-panel {
+  transform: translateX(100%);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  background-color: var(--color-card-white);
+}
+
+.drawer-panel.active {
+  transform: translateX(0);
+}
+
+/* Modal Transitions */
+.modal-backdrop {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+
+.modal-backdrop.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-content {
+  transform: scale(0.97) translateY(8px);
+  opacity: 0;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  background-color: var(--color-card-white);
+}
+
+.modal-backdrop.active .modal-content {
+  transform: scale(1) translateY(0);
+  opacity: 1;
+}
+
+/* Toast Notifications */
+#toast-container {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  pointer-events: none;
+}
+
+.toast-item {
+  pointer-events: auto;
+  background-color: var(--color-deep-green);
+  color: #FFFFFF;
+  border: 1px solid var(--color-sage);
+  border-radius: 8px;
+  padding: 14px 20px;
+  min-width: 280px;
+  max-width: 380px;
+  box-shadow: 0 10px 25px rgba(25, 56, 42, 0.25);
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  transform: translateY(20px);
+  opacity: 0;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.toast-item.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Routine Step Cards */
+.routine-step-card {
+  background-color: var(--color-card-white);
+  border: 1.5px solid var(--color-border);
+  border-radius: 12px;
+  box-shadow: 0 4px 18px rgba(25, 56, 42, 0.03);
+  transition: all 0.25s ease;
+}
+
+.routine-step-card:hover {
+  border-color: var(--color-sage);
+  box-shadow: 0 10px 28px rgba(25, 56, 42, 0.07);
+}
+
+/* Accordion details */
+details summary::-webkit-details-marker {
+  display: none;
+}
+
+details summary {
+  list-style: none;
+}
+
+details[open] summary .accordion-icon {
+  transform: rotate(180deg);
+}
+
+/* Minimal Luxury Skincare Bottle Illustrations */
+.concern-card {
+  position: relative;
+  background-color: var(--color-card-white);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-align: center;
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(25, 56, 42, 0.05);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), 
+              border-color 0.3s ease, 
+              box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.concern-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-sage);
+  box-shadow: 0 12px 28px rgba(25, 56, 42, 0.09);
+}
+
+.concern-bottle-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 92px;
+  margin-bottom: 0.85rem;
+}
+
+.concern-bottle-svg {
+  width: 76px;
+  height: 88px;
+  overflow: visible;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.concern-card:hover .concern-bottle-svg {
+  transform: translateY(-5px);
+}
+
+.bottle-ground-shadow {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+              opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  transform-origin: center;
+}
+
+.concern-card:hover .bottle-ground-shadow {
+  transform: scale(1.12);
+  opacity: 0.16;
+}
+
+/* Accessibility Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto !important;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .product-card-media .primary-img,
+  .product-card-media .secondary-img {
+    transition: none !important;
+  }
+
+  .product-card:hover .primary-img {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .product-card:hover .secondary-img {
+    opacity: 0 !important;
+    transform: none !important;
+  }
+
+  .drawer-panel,
+  .modal-content,
+  .toast-item,
+  .concern-card,
+  .concern-bottle-svg,
+  .bottle-ground-shadow {
+    transition: none !important;
+    transform: none !important;
+  }
+}
